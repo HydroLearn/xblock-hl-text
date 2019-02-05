@@ -1,18 +1,18 @@
-.ck-content figure.image img {
+.HLCustomText_wrapper figure.image img, .ck-content figure.image img {
   height: 300px; }
-.ck-content figure.image.image-style-align-right {
+.HLCustomText_wrapper figure.image.image-style-align-right, .ck-content figure.image.image-style-align-right {
   float: right; }
-  .ck-content figure.image.image-style-align-right img {
+  .HLCustomText_wrapper figure.image.image-style-align-right img, .ck-content figure.image.image-style-align-right img {
     height: 200px; }
-.ck-content figure.image.image-style-align-left {
+.HLCustomText_wrapper figure.image.image-style-align-left, .ck-content figure.image.image-style-align-left {
   float: left; }
-  .ck-content figure.image.image-style-align-left img {
+  .HLCustomText_wrapper figure.image.image-style-align-left img, .ck-content figure.image.image-style-align-left img {
     height: 200px; }
-.ck-content figure figcaption {
+.HLCustomText_wrapper figure figcaption, .ck-content figure figcaption {
   background: #eee;
   font-style: italic;
   text-align: center; }
-.ck-content figure.table table {
+.HLCustomText_wrapper figure.table table, .ck-content figure.table table {
   border-spacing: 1px;
   border-collapse: unset;
                 /*
@@ -36,14 +36,14 @@
                     }
                 }
                 */ }
-  .ck-content figure.table table tr th {
+  .HLCustomText_wrapper figure.table table tr th, .ck-content figure.table table tr th {
     padding: 3px 5px;
     margin: 1px;
     background: #45a4f3;
     color: #fff;
     font-weight: 600;
     font-style: italic; }
-  .ck-content figure.table table tr td {
+  .HLCustomText_wrapper figure.table table tr td, .ck-content figure.table table tr td {
     padding: 3px 5px;
     margin: 1px;
     background: #eee; }
