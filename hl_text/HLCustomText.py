@@ -78,7 +78,7 @@ class HLCustomTextXBlock(XBlock):
         content = {'self': self}
 
         body_html = unicode(self.generate_html(self.content))
-
+        fragment.add_css(load_resource('static/css/ck-content-styling.css'))
         fragment.add_css(load_resource('static/css/lms-styling.css'))
         fragment.add_content(Template(body_html).render(Context(content)))
         #fragment.add_content(render_template('templates/HLCustomText.html', content))
@@ -135,6 +135,7 @@ class HLCustomTextXBlock(XBlock):
         fragment.add_content(render_template('templates/HLCustomText_edit.html', content))
 
         # add static files for styling, custom CK5 build, and template initialization
+        fragment.add_css(load_resource('static/css/ck-content-styling.css'))
         fragment.add_css(load_resource('static/css/cms-styling.css'))
         fragment.add_javascript(unicode(render_template('static/js/HL_ck5_custom.js', content)))
         fragment.add_javascript(unicode(render_template('static/js/HLCustomText_edit.js', content)))
