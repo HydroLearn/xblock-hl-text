@@ -12,6 +12,9 @@ function HLCK5_XBlockStudio(runtime, xblock_element) {
     var sTop = "15.5%";
     var sLeft = "15%";
 
+    var modal_height_pct = 80;
+    var modal_width_pct = 90;
+
     // button colors for the action icons
     var csxColor = [
         "#009FE6",     // inactive
@@ -121,39 +124,19 @@ function HLCK5_XBlockStudio(runtime, xblock_element) {
         return cookieValue;
     }
 
-    // Adjust Editor dialog to fit the entire window
-    function xblock_maximize() {
+    function place_modal(){
+        var scroll_offset = $('html').scrollTop();
+        var left_margin = (100 - modal_width_pct) / 2;
+        var top_margin = ((100 - modal_height_pct) / 2) * window.innerHeight;
 
-        // var h = 0.83 * $(window).height();
-        //
-        // $('.modal-window').css({"top": "0px", "left": "0px", "width": "100%"});
-        // $('.modal-content').css({"height": 0.865 * $(window).height()});
-        // //if (ckeditor_html != "") ckeditor_html.resize("100%", h);
-        // if (editor_html != "") editor_html.setSize("100%", h);
-        // $('#chx_fullscreen').css({"color": csxColor[1]});
-        //
-        // isFullscreen = true;
-    }
 
-    // Adjust Editor dialog to edX's standard settings
-    function xblock_minimize() {
+        $('.modal-window').css({
+            "top": scroll_offset + top_margin,
+            'left': left_margin + "%" ,
+            "width": modal_width_pct + "vw",
+            "height": modal_height_pct + "vh"
+        });
 
-        // var h = 0.55 * $(window).height();
-
-        //$('.modal-window').css({"top": sTop, "left": sLeft, "width": sWidth});
-        //$('.modal-content').css({"height": 0.6 * $(window).height()});
-        //if (ckeditor_html != "") ckeditor_html.resize("100%", h);
-        // if (editor_html != "") editor_html.setSize("100%", h);
-        // $('#chx_fullscreen').css({"color": csxColor[0]});
-        //
-        // isFullscreen = false;
-
-    }
-
-    // Refresh Editor dimensions
-    function xblock_refresh() {
-        // if (isFullscreen) xblock_maximize();
-        // else xblock_minimize();
     }
 
     function tab_highlight(toHighlight) {
@@ -168,7 +151,8 @@ function HLCK5_XBlockStudio(runtime, xblock_element) {
         tab_highlight(toShow);
         for (var b in studio_buttons) $("." + b).hide();
         $("." + toShow).show();
-        xblock_refresh();
+
+        place_modal();
     }
 
     // Send current code and settings to the backend
@@ -215,12 +199,19 @@ function HLCK5_XBlockStudio(runtime, xblock_element) {
         tab_switch("chx_tab_html");
 
         // Adjust the modal window
-        // xblock_minimize();
+        place_modal();
 
         // Readjust modal window dimensions in case the browser window is resized
-        // window.addEventListener('resize', function() {
-        //     xblock_refresh()
-        // });
+        window.addEventListener('resize', function() {
+
+            place_modal();
+        });
+
+        // reposition modal on window scroll
+        window.addEventListener('scroll', function() {
+
+            place_modal();
+        });
 
         $('#chx_tab_options').click(function() {
             tab_switch("chx_tab_options");
@@ -231,10 +222,10 @@ function HLCK5_XBlockStudio(runtime, xblock_element) {
         });
 
         // Fill the window with the Editor view
-        $('#chx_fullscreen').click(function() {
-            isFullscreen = !isFullscreen;
-            xblock_refresh();
-        });
+        // $('#chx_fullscreen').click(function() {
+        //     isFullscreen = !isFullscreen;
+        //
+        // });
 
         // Clicked Save button
         $('#chx_submit').click(function(eventObject) {
