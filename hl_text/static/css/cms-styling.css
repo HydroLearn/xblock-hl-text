@@ -19,6 +19,8 @@
   .edit-xblock-modal .modal-content {
     overflow: hidden;
     flex-grow: 1; }
+    .edit-xblock-modal .modal-content .xblock-editor, .edit-xblock-modal .modal-content .xblock-studio_view, .edit-xblock-modal .modal-content .HLCustomText_xblock_studio, .edit-xblock-modal .modal-content .chx_tab_html {
+      height: 100%; }
   .edit-xblock-modal .modal-actions {
     flex-grow: unset; }
 
@@ -27,7 +29,7 @@
   border-radius: var(--ck-border-radius);
   /* Set vertical boundaries for the document editor. */
   /* max-height: 700px; */
-  height: -webkit-fill-available;
+  height: 100%;
   /* This element is a flex container for easier rendering. */
   display: flex;
   flex-flow: column nowrap; }

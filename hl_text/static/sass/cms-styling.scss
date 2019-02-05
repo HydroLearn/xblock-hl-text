@@ -25,6 +25,10 @@
     .modal-content {
     	overflow: hidden;
         flex-grow: 1;
+
+        .xblock-editor, .xblock-studio_view, .HLCustomText_xblock_studio, .chx_tab_html{
+            height: 100%;
+        }
     }
     .modal-actions {
         flex-grow: unset;
@@ -38,7 +42,8 @@
 
     /* Set vertical boundaries for the document editor. */
     /* max-height: 700px; */
-    height: -webkit-fill-available;
+    //height: -webkit-fill-available;
+    height:100%;
 
     /* This element is a flex container for easier rendering. */
     display: flex;
