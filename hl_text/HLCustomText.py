@@ -49,7 +49,7 @@ class HLCustomTextXBlock(XBlock):
     def generate_html(html):
 
         result = "<div class='HLCustomText_xblock'>"
-        result += "<div class='HLCustomText_wrapper'>"
+        result += "<div class='HLCustomText_wrapper ck-content'>"
         # Assume valid HTML code
         result += html
         result += "</div>"
