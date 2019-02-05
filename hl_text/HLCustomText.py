@@ -5,13 +5,13 @@ XBlock for presenting the user with a CKEditor 5 instance for entering textual c
 This block is meant as a replacement for the default OpenEDX text block, as at the time of development,
 the OpenEDX platform is still utilizing TinyMCE
 
-    
+
 Author : Cary Rivet
 
 Disclaimer:
-    the code below was derived from a working example of the 'LynxTable' xblock 
+    the code below was derived from a working example of the 'LynxTable' xblock
     located here: https://github.com/mjrulesamrat/lynxtable
-    
+
     this block was developed as an example for the initial development of this xblock to get started. ( I is n00b )
     over time this block's implementation will be converted to a better standard for use in the HydroLearn platform.
 
@@ -71,20 +71,20 @@ class HLCustomTextXBlock(XBlock):
         The student view
         """
         fragment = Fragment()
-        
+
         # i assume this is making the xblock instance available from the front end
         # since 'content' is being passed as context for the template.
-        
+
         content = {'self': self}
-        
+
         body_html = unicode(self.generate_html(self.content))
 
-        fragment.add_css(load_resource('static/css/HLCustomText_styling.css'))
+        fragment.add_css(load_resource('static/css/lms-styling.css'))
         fragment.add_content(Template(body_html).render(Context(content)))
         #fragment.add_content(render_template('templates/HLCustomText.html', content))
 
-        
-        
+
+
         # add the custom initialization code for the LMS view and initialize it
         fragment.add_javascript(unicode(render_template('static/js/HLCustomText_lms.js', content)))
         fragment.initialize_js('HLCK5_XBlock')
@@ -108,9 +108,9 @@ class HLCustomTextXBlock(XBlock):
             # content["CKEDITOR_URL"] = ""
         # except urllib2.URLError, e:
             # content["CKEDITOR_URL"] = ""
-        
+
         # ***************************************** not using a fallback
-        
+
         # Load CodeMirror
         # fragment.add_javascript(load_resource('static/js/codemirror/lib/codemirror.js'))
         # fragment.add_javascript(load_resource('static/js/codemirror/mode/xml/xml.js'))
@@ -127,19 +127,19 @@ class HLCustomTextXBlock(XBlock):
         # fragment.add_javascript(load_resource('static/js/codemirror/addon/search/searchcursor.js'))
         # fragment.add_javascript(load_resource('static/js/codemirror/addon/dialog/dialog.js'))
         # fragment.add_css(load_resource('static/js/codemirror/addon/dialog/dialog.css'))
-        
+
         # *****************************************
-        
-        
+
+
         # Load Studio View
         fragment.add_content(render_template('templates/HLCustomText_edit.html', content))
-        
+
         # add static files for styling, custom CK5 build, and template initialization
-        fragment.add_css(load_resource('static/css/HLCustomText_edit_styling.css'))
+        fragment.add_css(load_resource('static/css/cms-styling.css'))
         fragment.add_javascript(unicode(render_template('static/js/HL_ck5_custom.js', content)))
         fragment.add_javascript(unicode(render_template('static/js/HLCustomText_edit.js', content)))
         fragment.initialize_js('HLCK5_XBlockStudio')
-        
+
         return fragment
 
     @staticmethod
