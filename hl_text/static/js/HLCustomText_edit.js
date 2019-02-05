@@ -179,7 +179,7 @@ function HLCK5_XBlockStudio(runtime, xblock_element) {
         // Add Save Button
         $('ul', '.modal-actions')
             .append(
-                $('<li>', {class: "action-item"}).append(
+                $('<li>', {class: "action-item"}).prepend(
                     $('<a />', {class: "action-primary", id: "chx_submit", text: "Save"})
                 )
             );
