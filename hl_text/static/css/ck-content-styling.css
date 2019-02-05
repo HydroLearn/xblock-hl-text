@@ -1,3 +1,17 @@
+.HLCustomText_wrapper ul, .HLCustomText_wrapper ol, .ck-content ul, .ck-content ol {
+  margin-left: 2em; }
+.HLCustomText_wrapper ul, .ck-content ul {
+  list-style: disc; }
+.HLCustomText_wrapper ol, .ck-content ol {
+  list-style: decimal; }
+  .HLCustomText_wrapper ol ol, .ck-content ol ol {
+    list-style: upper-alpha; }
+    .HLCustomText_wrapper ol ol ol, .ck-content ol ol ol {
+      list-style: lower-alpha; }
+      .HLCustomText_wrapper ol ol ol ol, .ck-content ol ol ol ol {
+        list-style: upper-roman; }
+        .HLCustomText_wrapper ol ol ol ol ol, .ck-content ol ol ol ol ol {
+          list-style: lower-roman; }
 .HLCustomText_wrapper figure.image img, .ck-content figure.image img {
   height: 300px; }
 .HLCustomText_wrapper figure.image.image-style-align-right, .ck-content figure.image.image-style-align-right {

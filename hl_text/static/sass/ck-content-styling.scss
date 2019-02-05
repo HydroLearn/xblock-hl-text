@@ -1,6 +1,25 @@
 @import 'branding';
 
 .HLCustomText_wrapper, .ck-content {
+
+    ul, ol{
+        margin-left: 2em;
+    }
+
+    ul{
+        list-style: disc;
+    }
+
+    ol{ list-style: decimal;
+        ol{ list-style: upper-alpha;
+            ol{ list-style: lower-alpha;
+                ol{ list-style: upper-roman;
+                    ol{ list-style: lower-roman; }
+                }
+            }
+        }
+    }
+
     figure{
 
         // ********************* IMAGE STYLING *********************
