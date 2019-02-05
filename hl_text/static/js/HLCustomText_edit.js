@@ -6,24 +6,24 @@
 function HLCK5_XBlockStudio(runtime, xblock_element) {
 
     var isFullscreen = false;
-    
+
     var sHeight = 0;
     var sWidth = "70%";
     var sTop = "15.5%";
     var sLeft = "15%";
-    
+
     // button colors for the action icons
     var csxColor = [
         "#009FE6",     // inactive
         "black"        // active
         ];
-    
+
     var editor_element_id = "chx_body_html";
-    
+
 
     // **************************************************
     // LOADING CUSTOM CK BUILD SO DONT NEED TO DO THIS
-    //        also code mirror isn't being used as a fallback ideally 
+    //        also code mirror isn't being used as a fallback ideally
     //        since i obviously never make mistakes... right?
     // **************************************************
     // Manually set this to where you store CKEditor
@@ -49,54 +49,54 @@ function HLCK5_XBlockStudio(runtime, xblock_element) {
 
     // // Attach CKEditor to HTML input textarea
     // if (CKEditor_URL.endsWith("ckeditor.js")) {
-        
+
         // $.getScript(CKEditor_URL, function () {
             // ckeditor_html = CKEDITOR.replace('chx_body_html');
             // ckeditor_html.config.height = "auto";
             // ckeditor_html.config.width = "auto";
-        
+
             // ckeditor_html.config.extraPlugins = "format";
             // ckeditor_html.config.format_tags = "p;h1;h2;h3;h4;h5;h6;pre;address;div";
             // ckeditor_html.config.baseHref = "http://148.251.101.130:8001/";
             // ckeditor_html.config.resize_enabled = true;
-        
+
         // });
     // }
     // else{
         // ckeditor_html_flag = false;
-        
+
     // }
-    
+
     if(typeof(HL_CKEDITOR) != 'undefined'){
         console.log("HL_CKEDITOR was loaded.")
-        
+
         HL_CKEDITOR.default.document_editor
         //HL_CKEDITOR.default.classic_editor
-        
+
             .create(document.getElementById(editor_element_id),{
                 imageUploadUrl: "/assets/" + window.course.id + "/",
                 csrf_token: getCookie('csrftoken'),
             }).then(editor => {
-                
+
                 ckeditor_html = editor
 
                 // editor.model.document.on( 'change:data', () => {
                     // TOC_MGR.trigger_event(TOC_MGR.EVENT_TRIGGERS.EDITED_CURRENT)
                 // } );
-                
+
                 const toolbarContainer = document.querySelector( '.document-editor__toolbar' );
                 toolbarContainer.appendChild( editor.ui.view.toolbar.element );
-                
+
                 console.log("HL_CKEDITOR successfully initialized.");
             }).catch(err => {
                 console.log(err.stack)
             });
-        
+
     }else{
         alert("HL_CKEDITOR was not found!")
         ckeditor_html_flag = false;
     }
-    
+
     // Use CodeMirror as a fallback
     // if (!ckeditor_html_flag) {
         // console.log("Code mirror loaded");
@@ -104,7 +104,7 @@ function HLCK5_XBlockStudio(runtime, xblock_element) {
             // jQuery.extend({mode: {name: "htmlmixed", globalVars: true}}, codemirror_settings)
         // );
     // }
-    
+
     function getCookie(name) {
         var cookieValue = null;
         if (document.cookie && document.cookie !== '') {
@@ -124,36 +124,36 @@ function HLCK5_XBlockStudio(runtime, xblock_element) {
     // Adjust Editor dialog to fit the entire window
     function xblock_maximize() {
 
-        var h = 0.83 * $(window).height();
-
-        $('.modal-window').css({"top": "0px", "left": "0px", "width": "100%"});
-        $('.modal-content').css({"height": 0.865 * $(window).height()});
-        //if (ckeditor_html != "") ckeditor_html.resize("100%", h);
-        if (editor_html != "") editor_html.setSize("100%", h);
-        $('#chx_fullscreen').css({"color": csxColor[1]});
-
-        isFullscreen = true;
+        // var h = 0.83 * $(window).height();
+        //
+        // $('.modal-window').css({"top": "0px", "left": "0px", "width": "100%"});
+        // $('.modal-content').css({"height": 0.865 * $(window).height()});
+        // //if (ckeditor_html != "") ckeditor_html.resize("100%", h);
+        // if (editor_html != "") editor_html.setSize("100%", h);
+        // $('#chx_fullscreen').css({"color": csxColor[1]});
+        //
+        // isFullscreen = true;
     }
 
     // Adjust Editor dialog to edX's standard settings
     function xblock_minimize() {
 
-        var h = 0.55 * $(window).height();
+        // var h = 0.55 * $(window).height();
 
         //$('.modal-window').css({"top": sTop, "left": sLeft, "width": sWidth});
         //$('.modal-content').css({"height": 0.6 * $(window).height()});
         //if (ckeditor_html != "") ckeditor_html.resize("100%", h);
-        if (editor_html != "") editor_html.setSize("100%", h);
-        $('#chx_fullscreen').css({"color": csxColor[0]});
-
-        isFullscreen = false;
+        // if (editor_html != "") editor_html.setSize("100%", h);
+        // $('#chx_fullscreen').css({"color": csxColor[0]});
+        //
+        // isFullscreen = false;
 
     }
 
     // Refresh Editor dimensions
     function xblock_refresh() {
-        if (isFullscreen) xblock_maximize();
-        else xblock_minimize();
+        // if (isFullscreen) xblock_maximize();
+        // else xblock_minimize();
     }
 
     function tab_highlight(toHighlight) {
@@ -200,7 +200,7 @@ function HLCK5_XBlockStudio(runtime, xblock_element) {
                     $('<a />', {class: "action-primary", id: "chx_submit", text: "Save"})
                 )
             );
-        
+
         // add actions for the top of the modal to switch views
         for (var b in studio_buttons) {
             $('.editor-modes')
@@ -213,14 +213,14 @@ function HLCK5_XBlockStudio(runtime, xblock_element) {
 
         // Set main pane to Options
         tab_switch("chx_tab_html");
-        
+
         // Adjust the modal window
-        xblock_minimize();
-        
+        // xblock_minimize();
+
         // Readjust modal window dimensions in case the browser window is resized
-        window.addEventListener('resize', function() {
-            xblock_refresh()
-        });
+        // window.addEventListener('resize', function() {
+        //     xblock_refresh()
+        // });
 
         $('#chx_tab_options').click(function() {
             tab_switch("chx_tab_options");
