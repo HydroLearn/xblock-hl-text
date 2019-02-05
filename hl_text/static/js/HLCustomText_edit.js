@@ -13,7 +13,7 @@ function HLCK5_XBlockStudio(runtime, xblock_element) {
     var sLeft = "15%";
 
     var modal_height_pct = 80;
-    var modal_width_pct = 90;
+    var modal_width_pct = 80;
 
     // button colors for the action icons
     var csxColor = [
@@ -43,7 +43,7 @@ function HLCK5_XBlockStudio(runtime, xblock_element) {
     var studio_buttons = {
         "chx_tab_html": "HTML",
         "chx_tab_options": "Options",
-        "chx_fullscreen": "Max"
+        //"chx_fullscreen": "Max"
     };
 
     var ckeditor_html = "";
@@ -125,7 +125,6 @@ function HLCK5_XBlockStudio(runtime, xblock_element) {
     }
 
     function place_modal(){
-        console.log('placing modal...');
         var scroll_offset = $('html').scrollTop();
         var left_margin = (100 - modal_width_pct) / 2;
         var top_margin = ((100 - modal_height_pct) / 2);
@@ -198,18 +197,13 @@ function HLCK5_XBlockStudio(runtime, xblock_element) {
         // Set main pane to Options
         tab_switch("chx_tab_html");
 
-        // Adjust the modal window
-        place_modal();
-
         // Readjust modal window dimensions in case the browser window is resized
         window.addEventListener('resize', function() {
-
             place_modal();
         });
 
         // reposition modal on window scroll
         window.addEventListener('scroll', function() {
-
             place_modal();
         });
 
