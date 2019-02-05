@@ -17,7 +17,7 @@
   .edit-xblock-modal .modal-header {
     flex-grow: unset; }
   .edit-xblock-modal .modal-content {
-    overflow: hidden;
+    overflow: hidden !important;
     flex-grow: 1; }
     .edit-xblock-modal .modal-content .xblock-editor, .edit-xblock-modal .modal-content .xblock-studio_view, .edit-xblock-modal .modal-content .HLCustomText_xblock_studio, .edit-xblock-modal .modal-content .chx_tab_html {
       height: 100%; }

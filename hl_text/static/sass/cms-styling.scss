@@ -23,7 +23,7 @@
         flex-grow: unset;
     }
     .modal-content {
-    	overflow: hidden;
+    	overflow: hidden !important;
         flex-grow: 1;
 
         .xblock-editor, .xblock-studio_view, .HLCustomText_xblock_studio, .chx_tab_html{
