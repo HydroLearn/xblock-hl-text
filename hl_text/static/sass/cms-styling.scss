@@ -13,9 +13,24 @@
 .chx_body_css {
     width: 100%;
 }
-.modal-content {
-	overflow: hidden;
+
+.edit-xblock-modal{
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+
+    .modal-header{
+        flex-grow: unset;
+    }
+    .modal-content {
+    	overflow: hidden;
+        flex-grow: 1;
+    }
+    .modal-actions {
+        flex-grow: unset;
+    }
 }
+
 
 .document-editor {
     border: 1px solid var(--ck-color-base-border);

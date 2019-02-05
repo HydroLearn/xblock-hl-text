@@ -10,8 +10,17 @@
 .chx_body_css {
   width: 100%; }
 
-.modal-content {
-  overflow: hidden; }
+.edit-xblock-modal {
+  display: flex;
+  flex-flow: column;
+  height: 100%; }
+  .edit-xblock-modal .modal-header {
+    flex-grow: unset; }
+  .edit-xblock-modal .modal-content {
+    overflow: hidden;
+    flex-grow: 1; }
+  .edit-xblock-modal .modal-actions {
+    flex-grow: unset; }
 
 .document-editor {
   border: 1px solid var(--ck-color-base-border);
