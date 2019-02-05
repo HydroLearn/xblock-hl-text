@@ -125,6 +125,7 @@ function HLCK5_XBlockStudio(runtime, xblock_element) {
     }
 
     function place_modal(){
+        console.log('placing modal...');
         var scroll_offset = $('html').scrollTop();
         var left_margin = (100 - modal_width_pct) / 2;
         var top_margin = ((100 - modal_height_pct) / 2);
