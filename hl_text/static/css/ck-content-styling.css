@@ -48,6 +48,7 @@
   border-collapse: collapse;
   font-size: 1em; }
   .ck-content figure.table table tr th {
+    background: #eee;
     font-weight: 600;
     margin: 20px 0;
     padding: 10px;
