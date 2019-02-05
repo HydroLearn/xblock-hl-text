@@ -1,0 +1,34 @@
+<div class="HLCustomText_xblock_studio">
+
+	<!-- HTML editor tab -->
+    <div class="chx_tab_html">
+        <!-- document-editor__toolbar -->
+        <!-- document-editor__editable-container -->
+        <!-- document-editor__editable -->
+        <div class="document-editor">
+            <div class="document-editor__toolbar"></div>
+            <div class="document-editor__editable-container">
+                <!-- <div name="chx_body_html" id="chx_body_html" wrap="off" class="chx_body_html document-editor__editable" cols="80" rows="20"> -->
+                <div id="chx_body_html" class="chx_body_html document-editor__editable">
+                    {{ self.content|safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- XBlock options -->
+    <div class="chx_tab_options">
+		<!-- this seems like the form for modifying the model fields -->
+        <p class="chx_desc">Display Name</p>
+        <input type="text" class="chx_display_name" value="{{ self.display_name }}">
+    </div>
+
+    <!-- Preview tab -->
+    <div class="chx_tab_preview" hidden>
+        <p>Preview tab currently disabled.</p>
+        <div class="chx_javascript_error" hidden>
+            <p>There is a problem in this XBlock's JavaScript code. Please check your console log.</p>
+        </div>
+    </div>
+
+</div>
