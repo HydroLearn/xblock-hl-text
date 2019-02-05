@@ -1,32 +1,47 @@
-.HLCustomText_wrapper ul, .HLCustomText_wrapper ol, .ck-content ul, .ck-content ol {
+.ck-content h1, .ck-content h2, .ck-content h3, .ck-content h4, .ck-content h5, .ck-content h6 {
+  font-weight: 600;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+.ck-content h1 {
+  font-size: 2em; }
+.ck-content h2 {
+  font-size: 1.8em; }
+.ck-content h3 {
+  font-size: 1.4em; }
+.ck-content h4 {
+  font-size: 1.2em; }
+.ck-content h5 {
+  font-size: 1em; }
+.ck-content h6 {
+  font-size: 1em; }
+.ck-content ul, .ck-content ol {
   margin-left: 2em; }
-.HLCustomText_wrapper ul, .ck-content ul {
+.ck-content ul {
   list-style: disc; }
-.HLCustomText_wrapper ol, .ck-content ol {
+.ck-content ol {
   list-style: decimal; }
-  .HLCustomText_wrapper ol ol, .ck-content ol ol {
+  .ck-content ol ol {
     list-style: upper-alpha; }
-    .HLCustomText_wrapper ol ol ol, .ck-content ol ol ol {
+    .ck-content ol ol ol {
       list-style: lower-alpha; }
-      .HLCustomText_wrapper ol ol ol ol, .ck-content ol ol ol ol {
+      .ck-content ol ol ol ol {
         list-style: upper-roman; }
-        .HLCustomText_wrapper ol ol ol ol ol, .ck-content ol ol ol ol ol {
+        .ck-content ol ol ol ol ol {
           list-style: lower-roman; }
-.HLCustomText_wrapper figure.image img, .ck-content figure.image img {
+.ck-content figure.image img {
   height: 300px; }
-.HLCustomText_wrapper figure.image.image-style-align-right, .ck-content figure.image.image-style-align-right {
+.ck-content figure.image.image-style-align-right {
   float: right; }
-  .HLCustomText_wrapper figure.image.image-style-align-right img, .ck-content figure.image.image-style-align-right img {
+  .ck-content figure.image.image-style-align-right img {
     height: 200px; }
-.HLCustomText_wrapper figure.image.image-style-align-left, .ck-content figure.image.image-style-align-left {
+.ck-content figure.image.image-style-align-left {
   float: left; }
-  .HLCustomText_wrapper figure.image.image-style-align-left img, .ck-content figure.image.image-style-align-left img {
+  .ck-content figure.image.image-style-align-left img {
     height: 200px; }
-.HLCustomText_wrapper figure figcaption, .ck-content figure figcaption {
+.ck-content figure figcaption {
   background: #eee;
   font-style: italic;
   text-align: center; }
-.HLCustomText_wrapper figure.table table, .ck-content figure.table table {
+.ck-content figure.table table {
   border-spacing: 1px;
   border-collapse: unset;
                 /*
@@ -50,16 +65,19 @@
                     }
                 }
                 */ }
-  .HLCustomText_wrapper figure.table table tr th, .ck-content figure.table table tr th {
+  .ck-content figure.table table tr th {
     padding: 3px 5px;
     margin: 1px;
     background: #45a4f3;
     color: #fff;
     font-weight: 600;
     font-style: italic; }
-  .HLCustomText_wrapper figure.table table tr td, .ck-content figure.table table tr td {
+  .ck-content figure.table table tr td {
     padding: 3px 5px;
     margin: 1px;
     background: #eee; }
+.ck-content blockquote {
+  margin-left: calc( 2 * var(--ck-spacing-large) );
+  margin-right: calc( 2 * var(--ck-spacing-large) ); }
 
 /*# sourceMappingURL=ck-content-styling.css.map */

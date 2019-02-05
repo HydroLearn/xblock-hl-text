@@ -10,18 +10,18 @@
 .chx_body_css {
   width: 100%; }
 
-.edit-xblock-modal {
+.modal-type-hl_text .edit-xblock-modal {
   display: flex;
   flex-flow: column;
   height: 100%; }
-  .edit-xblock-modal .modal-header {
+  .modal-type-hl_text .edit-xblock-modal .modal-header {
     flex-grow: unset; }
-  .edit-xblock-modal .modal-content {
+  .modal-type-hl_text .edit-xblock-modal .modal-content {
     overflow: hidden !important;
     flex-grow: 1; }
-    .edit-xblock-modal .modal-content .xblock-editor, .edit-xblock-modal .modal-content .xblock-studio_view, .edit-xblock-modal .modal-content .HLCustomText_xblock_studio, .edit-xblock-modal .modal-content .chx_tab_html {
+    .modal-type-hl_text .edit-xblock-modal .modal-content .xblock-editor, .modal-type-hl_text .edit-xblock-modal .modal-content .xblock-studio_view, .modal-type-hl_text .edit-xblock-modal .modal-content .HLCustomText_xblock_studio, .modal-type-hl_text .edit-xblock-modal .modal-content .chx_tab_html {
       height: 100%; }
-  .edit-xblock-modal .modal-actions {
+  .modal-type-hl_text .edit-xblock-modal .modal-actions {
     flex-grow: unset; }
 
 .document-editor {
@@ -90,53 +90,10 @@ Preserve the relative scale, though. */
   transform-origin: left; }
 
 /* Set the styles for "Heading 1". */
-.document-editor .ck-content h2,
-.document-editor .ck-heading-dropdown .ck-heading_heading1 .ck-button__label {
-  font-size: 2.18em;
-  font-weight: normal; }
-
-.document-editor .ck-content h2 {
-  line-height: 1.37em;
-  padding-top: .342em;
-  margin-bottom: .142em; }
-
 /* Set the styles for "Heading 2". */
-.document-editor .ck-content h3,
-.document-editor .ck-heading-dropdown .ck-heading_heading2 .ck-button__label {
-  font-size: 1.75em;
-  font-weight: normal;
-  color: #009dff; }
-
-.document-editor .ck-heading-dropdown .ck-heading_heading2.ck-on .ck-button__label {
-  color: var(--ck-color-list-button-on-text); }
-
 /* Set the styles for "Heading 2". */
-.document-editor .ck-content h3 {
-  line-height: 1.86em;
-  padding-top: .171em;
-  margin-bottom: .357em; }
-
 /* Set the styles for "Heading 3". */
-.document-editor .ck-content h4,
-.document-editor .ck-heading-dropdown .ck-heading_heading3 .ck-button__label {
-  font-size: 1.31em;
-  font-weight: bold; }
-
-.document-editor .ck-content h4 {
-  line-height: 1.24em;
-  padding-top: .286em;
-  margin-bottom: .952em; }
-
 /* Set the styles for "Paragraph". */
-.document-editor .ck-content p {
-  font-size: 1em;
-  line-height: 1.63em;
-  padding-top: .5em;
-  margin-bottom: 1.13em; }
-
 /* Make the block quoted text serif with some additional spacing. */
-.document-editor .ck-content blockquote {
-  margin-left: calc( 2 * var(--ck-spacing-large) );
-  margin-right: calc( 2 * var(--ck-spacing-large) ); }
 
 /*# sourceMappingURL=cms-styling.css.map */
