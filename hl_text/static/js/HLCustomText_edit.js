@@ -15,69 +15,24 @@ function HLCK5_XBlockStudio(runtime, xblock_element) {
     var modal_height_pct = 80;
     var modal_width_pct = 80;
 
-    // button colors for the action icons
-    var csxColor = [
-        "#009FE6",     // inactive
-        "black"        // active
-        ];
-
-    var editor_element_id = "chx_body_html";
+    var editor_element_id = "HL_Text_editorBody";
 
 
-    // **************************************************
-    // LOADING CUSTOM CK BUILD SO DONT NEED TO DO THIS
-    //        also code mirror isn't being used as a fallback ideally
-    //        since i obviously never make mistakes... right?
-    // **************************************************
-    // Manually set this to where you store CKEditor
-    // var CKEditor_URL = "{{ CKEDITOR_URL }}";
-
-    // var codemirror_settings = {
-        // lineNumbers: true,
-        // matchBrackets: true,
-        // autoCloseBrackets: true,
-        // lineWrapping: true,
-        // theme: "mdn-like"
-    // };
-    // **************************************************
+    // Define mapping of tabs (modes) to display names
     var studio_buttons = {
         "editor": "EDITOR",
         "settings": "SETTINGS",
-        // "chx_tab_html": "editor",
-        // "chx_tab_options": "settings",
-        //"chx_fullscreen": "Max"
     };
 
     var ckeditor_html = "";
     var editor_html = "";
     var ckeditor_html_flag = true;
 
-    // // Attach CKEditor to HTML input textarea
-    // if (CKEditor_URL.endsWith("ckeditor.js")) {
-
-        // $.getScript(CKEditor_URL, function () {
-            // ckeditor_html = CKEDITOR.replace('chx_body_html');
-            // ckeditor_html.config.height = "auto";
-            // ckeditor_html.config.width = "auto";
-
-            // ckeditor_html.config.extraPlugins = "format";
-            // ckeditor_html.config.format_tags = "p;h1;h2;h3;h4;h5;h6;pre;address;div";
-            // ckeditor_html.config.baseHref = "http://148.251.101.130:8001/";
-            // ckeditor_html.config.resize_enabled = true;
-
-        // });
-    // }
-    // else{
-        // ckeditor_html_flag = false;
-
-    // }
-
     if(typeof(HL_CKEDITOR) != 'undefined'){
         console.log("HL_CKEDITOR was loaded.")
 
-        HL_CKEDITOR.default.document_editor
         //HL_CKEDITOR.default.classic_editor
-
+        HL_CKEDITOR.default.document_editor
             .create(document.getElementById(editor_element_id),{
                 imageUploadUrl: "/assets/" + window.course.id + "/",
                 csrf_token: getCookie('csrftoken'),
@@ -85,6 +40,7 @@ function HLCK5_XBlockStudio(runtime, xblock_element) {
 
                 ckeditor_html = editor
 
+                // sample binding on data changed action
                 // editor.model.document.on( 'change:data', () => {
                     // TOC_MGR.trigger_event(TOC_MGR.EVENT_TRIGGERS.EDITED_CURRENT)
                 // } );
@@ -94,6 +50,7 @@ function HLCK5_XBlockStudio(runtime, xblock_element) {
 
                 console.log("HL_CKEDITOR successfully initialized.");
             }).catch(err => {
+                console.log("HL_CKEDITOR initialization Failed!");
                 console.log(err.stack)
             });
 
@@ -102,13 +59,6 @@ function HLCK5_XBlockStudio(runtime, xblock_element) {
         ckeditor_html_flag = false;
     }
 
-    // Use CodeMirror as a fallback
-    // if (!ckeditor_html_flag) {
-        // console.log("Code mirror loaded");
-        // editor_html = CodeMirror.fromTextArea($('.chx_body_html')[0],
-            // jQuery.extend({mode: {name: "htmlmixed", globalVars: true}}, codemirror_settings)
-        // );
-    // }
 
     function getCookie(name) {
         var cookieValue = null;
@@ -141,24 +91,17 @@ function HLCK5_XBlockStudio(runtime, xblock_element) {
     }
 
     function tab_highlight(toHighlight) {
-        //for (var b in studio_buttons) {
-            //if (b != "chx_fullscreen") $("#" + b).css({"color": csxColor[0]});
-
-        //}
-        //$("#" + toHighlight).css({"color": csxColor[1]});
-
-        $('.modal-window .editor-modes a').removeClass('is-set')
-        $('.modal-window .editor-modes').find("#" + toHighlight).addClass('is-set');
+        $('.modal-window .editor-modes .modal_tab').removeClass('is-set')
+        $('.modal-window .editor-modes .modal_tab[data-mode="' + toHighlight + '"]'').addClass('is-set');
     }
 
     // Hide all panes except toShow
     function tab_switch(toShow) {
 
         tab_highlight(toShow);
-        //for (var b in studio_buttons) $("." + b).hide();
-        // $("." + toShow).show();
-        $('.modal_tab_view').hide()
-        $('.modal_tab_view[data-mode="' + toShow + '"]').show();
+
+        $('.modal-window .modal_tab_view').hide()
+        $('.modal-window .modal_tab_view[data-mode="' + toShow + '"]').show();
 
         place_modal();
     }
@@ -198,17 +141,17 @@ function HLCK5_XBlockStudio(runtime, xblock_element) {
             );
 
         // add actions for the top of the modal to switch views
-        for (var b in studio_buttons) {
+        for (var mode in studio_buttons) {
             $('.editor-modes')
                 .append(
                     $('<li>', {class: "action-item"}).append(
                         $('<a />', {
                             //class: "action-primary",
-                            class: b + "-button modal_tab",
-                            id: b,
-                            text: studio_buttons[b],
+                            class: mode + "-button modal_tab",
+                            //id: mode,
+                            text: studio_buttons[mode],
                             href: "#",
-                            "data-mode":b,
+                            "data-mode":mode,
                         })
                     )
                 );
@@ -227,23 +170,9 @@ function HLCK5_XBlockStudio(runtime, xblock_element) {
             place_modal();
         });
 
-        $('.modal-window .editor-modes a').click(function(){
+        $('.modal-window .editor-modes .modal_tab').click(function(){
             tab_switch($(this).attr('data-mode'));
         });
-
-        // $('#chx_tab_options').click(function() {
-        //     tab_switch("chx_tab_options");
-        // });
-        //
-        // $('#chx_tab_html').click(function() {
-        //     tab_switch("chx_tab_html");
-        // });
-
-        // Fill the window with the Editor view
-        // $('#chx_fullscreen').click(function() {
-        //     isFullscreen = !isFullscreen;
-        //
-        // });
 
         // Clicked Save button
         $('#chx_submit').click(function(eventObject) {
