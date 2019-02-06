@@ -62,23 +62,25 @@
   font-style: italic;
   text-align: center;
   padding: 5px; }
-.ck-content figure.table table {
-  width: 100%;
-  margin: 20px 0;
-  border-collapse: collapse;
-  font-size: 1em; }
-  .ck-content figure.table table tr th {
-    background: #eee;
-    font-weight: 600;
+.ck-content figure.table {
+  width: 100%; }
+  .ck-content figure.table table {
+    width: 100%;
     margin: 20px 0;
-    padding: 10px;
-    border: 1px solid #ccc;
+    border-collapse: collapse;
     font-size: 1em; }
-  .ck-content figure.table table tr td {
-    margin: 20px 0;
-    padding: 10px;
-    border: 1px solid #ccc;
-    font-size: 1.1em; }
+    .ck-content figure.table table tr th {
+      background: #eee;
+      font-weight: 600;
+      margin: 20px 0;
+      padding: 10px;
+      border: 1px solid #ccc;
+      font-size: 1em; }
+    .ck-content figure.table table tr td {
+      margin: 20px 0;
+      padding: 10px;
+      border: 1px solid #ccc;
+      font-size: 1.1em; }
 .ck-content blockquote {
   margin-left: calc( 2 * var(--ck-spacing-large) );
   margin-right: calc( 2 * var(--ck-spacing-large) ); }
