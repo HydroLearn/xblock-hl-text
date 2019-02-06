@@ -47,12 +47,10 @@ class HLCustomTextXBlock(XBlock):
 
     @staticmethod
     def generate_html(html):
-
-        result = "<div class='HLCustomText_xblock'>"
-        result += "<div class='HLCustomText_wrapper ck-content'>"
+        # add a wrapper around the content so ck-styling applies
+        result = "<div class='HL_Text ck-content'>"
         # Assume valid HTML code
         result += html
-        result += "</div>"
         result += "</div>"
 
         return result
