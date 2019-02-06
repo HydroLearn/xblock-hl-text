@@ -28,8 +28,15 @@
         margin-left: 2em;
     }
 
-    ul{
-        list-style: disc;
+    ul{ list-style: disc;
+        ul{    list-style: circle;
+            ul{ list-style: square;
+                ul{ list-style: disc;
+                    ul{ list-style: circle;
+                        ul{ list-style: square; }
+                }
+            }            
+        }
     }
 
     ol{ list-style: decimal;
@@ -98,7 +105,7 @@
                         // color: #fff;
                         // font-style: italic;
                         //border: 1px solid #ccc;
-                        
+
                         background: #eee;
                         font-weight: 600;
 
