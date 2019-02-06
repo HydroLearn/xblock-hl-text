@@ -2,26 +2,37 @@
 
 .ck-content {
     h1,h2,h3,h4,h5,h6{
-        font-weight: 600;
-        font-family: $default_font;
+        font-weight: 600 !important;
+        font-family: $default_font !important;
+        margin: 25px 0 10px !important;
+        text-transform: none !important;
+
     }
     h1{
-        font-size: 2em;
+        font-size: 2em !important;
+        color: $gray_dark !important;
     }
     h2{
-        font-size: 1.8em;
+        font-size: 1.8em !important;
+        color: $gray_dark !important;
+        border-bottom: 1px solid #ccc !important;
     }
     h3{
-        font-size: 1.4em;
+        font-size: 1.4em !important;
+        color: $gray_dark !important;
+        border-bottom: 1px solid #ccc !important;
     }
     h4{
-        font-size: 1.2em;
+        font-size: 1.4em !important;
+        color: $gray_med !important;
     }
     h5{
-        font-size: 1em;
+        font-size: 1.2em !important;
+        color: $gray_med !important;
     }
     h6{
-        font-size: 1em;
+        font-size: 1.1em !important;
+        color: $gray_med !important;
     }
 
     ul, ol{
@@ -35,7 +46,7 @@
                     ul{ list-style: circle;
                         ul{ list-style: square; }
                 }
-            }            
+            }
         }
     }
 
