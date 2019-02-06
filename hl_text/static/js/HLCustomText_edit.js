@@ -91,7 +91,7 @@ function HLCK5_XBlockStudio(runtime, xblock_element) {
     }
 
     function tab_highlight(toHighlight) {
-        $('.modal-window .editor-modes .modal_tab').removeClass('is-set')
+        $('.modal-window .editor-modes .modal_tab').removeClass('is-set');
         $('.modal-window .editor-modes .modal_tab[data-mode="' + toHighlight + '"]'').addClass('is-set');
     }
 
