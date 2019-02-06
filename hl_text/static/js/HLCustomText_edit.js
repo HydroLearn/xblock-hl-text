@@ -204,7 +204,7 @@ function HLCK5_XBlockStudio(runtime, xblock_element) {
                     $('<li>', {class: "action-item"}).append(
                         $('<a />', {
                             //class: "action-primary",
-                            class: studio_buttons[b] + "-button modal_tab",
+                            class: b + "-button modal_tab",
                             id: b,
                             text: studio_buttons[b],
                             href: "#",
