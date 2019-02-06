@@ -1,7 +1,7 @@
 <div class="HLCustomText_xblock_studio">
 
 	<!-- HTML editor tab -->
-    <div class="chx_tab_html">
+    <div class="modal_tab_view modal_tab_editor" data-mode="editor">
         <!-- document-editor__toolbar -->
         <!-- document-editor__editable-container -->
         <!-- document-editor__editable -->
@@ -17,18 +17,10 @@
     </div>
 
     <!-- XBlock options -->
-    <div class="chx_tab_options">
+    <div class="modal_tab_view modal_tab_settings" data-mode="settings">
 		<!-- this seems like the form for modifying the model fields -->
         <p class="chx_desc">Display Name</p>
         <input type="text" class="chx_display_name" value="{{ self.display_name }}">
-    </div>
-
-    <!-- Preview tab -->
-    <div class="chx_tab_preview" hidden>
-        <p>Preview tab currently disabled.</p>
-        <div class="chx_javascript_error" hidden>
-            <p>There is a problem in this XBlock's JavaScript code. Please check your console log.</p>
-        </div>
     </div>
 
 </div>

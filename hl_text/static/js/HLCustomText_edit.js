@@ -41,8 +41,10 @@ function HLCK5_XBlockStudio(runtime, xblock_element) {
     // };
     // **************************************************
     var studio_buttons = {
-        "chx_tab_html": "HTML",
-        "chx_tab_options": "Options",
+        "editor": "EDITOR",
+        "settings": "SETTINGS",
+        // "chx_tab_html": "editor",
+        // "chx_tab_options": "settings",
         //"chx_fullscreen": "Max"
     };
 
@@ -139,17 +141,24 @@ function HLCK5_XBlockStudio(runtime, xblock_element) {
     }
 
     function tab_highlight(toHighlight) {
-        for (var b in studio_buttons) {
-            if (b != "chx_fullscreen") $("#" + b).css({"color": csxColor[0]});
-        }
-        $("#" + toHighlight).css({"color": csxColor[1]});
+        //for (var b in studio_buttons) {
+            //if (b != "chx_fullscreen") $("#" + b).css({"color": csxColor[0]});
+
+        //}
+        //$("#" + toHighlight).css({"color": csxColor[1]});
+
+        $('.modal-window .editor-modes a').removeClass('is-set')
+        $('.modal-window .editor-modes').find("#" + toHighlight).addClass('is-set');
     }
 
     // Hide all panes except toShow
     function tab_switch(toShow) {
+
         tab_highlight(toShow);
-        for (var b in studio_buttons) $("." + b).hide();
-        $("." + toShow).show();
+        //for (var b in studio_buttons) $("." + b).hide();
+        // $("." + toShow).show();
+        $('.modal_tab_view').hide()
+        $('.modal_tab_view[data-mode="' + toShow + '"]').show();
 
         place_modal();
     }
@@ -180,7 +189,11 @@ function HLCK5_XBlockStudio(runtime, xblock_element) {
         $('ul', '.modal-actions')
             .prepend(
                 $('<li>', {class: "action-item"}).append(
-                    $('<a />', {class: "action-primary", id: "chx_submit", text: "Save"})
+                    $('<a />', {
+                        class: "action-primary",
+                        id: "chx_submit",
+                        text: "Save"
+                    })
                 )
             );
 
@@ -189,13 +202,20 @@ function HLCK5_XBlockStudio(runtime, xblock_element) {
             $('.editor-modes')
                 .append(
                     $('<li>', {class: "action-item"}).append(
-                        $('<a />', {class: "action-primary", id: b, text: studio_buttons[b]})
+                        $('<a />', {
+                            //class: "action-primary",
+                            class: studio_buttons[b] + "-button modal_tab",
+                            id: b,
+                            text: studio_buttons[b],
+                            href: "#",
+                            "data-mode":b,
+                        })
                     )
                 );
         }
 
         // Set main pane to Options
-        tab_switch("chx_tab_html");
+        tab_switch("editor");
 
         // Readjust modal window dimensions in case the browser window is resized
         window.addEventListener('resize', function() {
@@ -207,13 +227,17 @@ function HLCK5_XBlockStudio(runtime, xblock_element) {
             place_modal();
         });
 
-        $('#chx_tab_options').click(function() {
-            tab_switch("chx_tab_options");
+        $('.modal-window .editor-modes a').click(function(){
+            tab_switch($(this).attr('data-mode'));
         });
 
-        $('#chx_tab_html').click(function() {
-            tab_switch("chx_tab_html");
-        });
+        // $('#chx_tab_options').click(function() {
+        //     tab_switch("chx_tab_options");
+        // });
+        //
+        // $('#chx_tab_html').click(function() {
+        //     tab_switch("chx_tab_html");
+        // });
 
         // Fill the window with the Editor view
         // $('#chx_fullscreen').click(function() {
