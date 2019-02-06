@@ -51,7 +51,7 @@ function HLCK5_XBlockStudio(runtime, xblock_element) {
                 console.log("HL_CKEDITOR successfully initialized.");
             }).catch(err => {
                 console.log("HL_CKEDITOR initialization Failed!");
-                console.log(err.stack)
+                console.log(err.stack);
             });
 
     }else{
