@@ -6,7 +6,6 @@
         font-family: $default_font !important;
         margin: 25px 0 10px !important;
         text-transform: none !important;
-
     }
     h1{
         font-size: 2em !important;
@@ -45,6 +44,7 @@
                 ul{ list-style: disc;
                     ul{ list-style: circle;
                         ul{ list-style: square; }
+                    }
                 }
             }
         }

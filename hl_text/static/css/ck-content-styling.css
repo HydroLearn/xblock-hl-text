@@ -1,22 +1,42 @@
 .ck-content h1, .ck-content h2, .ck-content h3, .ck-content h4, .ck-content h5, .ck-content h6 {
-  font-weight: 600;
-  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+  font-weight: 600 !important;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  margin: 25px 0 10px !important;
+  text-transform: none !important; }
 .ck-content h1 {
-  font-size: 2em; }
+  font-size: 2em !important;
+  color: #232323 !important; }
 .ck-content h2 {
-  font-size: 1.8em; }
+  font-size: 1.8em !important;
+  color: #232323 !important;
+  border-bottom: 1px solid #ccc !important; }
 .ck-content h3 {
-  font-size: 1.4em; }
+  font-size: 1.4em !important;
+  color: #232323 !important;
+  border-bottom: 1px solid #ccc !important; }
 .ck-content h4 {
-  font-size: 1.2em; }
+  font-size: 1.4em !important;
+  color: #7f7f7f !important; }
 .ck-content h5 {
-  font-size: 1em; }
+  font-size: 1.2em !important;
+  color: #7f7f7f !important; }
 .ck-content h6 {
-  font-size: 1em; }
+  font-size: 1.1em !important;
+  color: #7f7f7f !important; }
 .ck-content ul, .ck-content ol {
   margin-left: 2em; }
 .ck-content ul {
   list-style: disc; }
+  .ck-content ul ul {
+    list-style: circle; }
+    .ck-content ul ul ul {
+      list-style: square; }
+      .ck-content ul ul ul ul {
+        list-style: disc; }
+        .ck-content ul ul ul ul ul {
+          list-style: circle; }
+          .ck-content ul ul ul ul ul ul {
+            list-style: square; }
 .ck-content ol {
   list-style: decimal; }
   .ck-content ol ol {
