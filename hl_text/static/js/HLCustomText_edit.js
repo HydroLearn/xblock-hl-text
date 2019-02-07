@@ -83,7 +83,7 @@ function HLCK5_XBlockStudio(runtime, xblock_element) {
         var left_margin = (100 - modal_width_pct) / 2;
         var top_margin = ((100 - modal_height_pct) / 2);
 
-        $('.modal-window').css({
+        $('.modal-window.modal-type-hl_text').css({
             "top": "calc(" + top_margin + "% + " + scroll_offset + "px)",
             'left': left_margin + "%" ,
             "width": modal_width_pct + "vw",
