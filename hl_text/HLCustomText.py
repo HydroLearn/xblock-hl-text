@@ -170,7 +170,7 @@ class HLCustomTextXBlock(XBlock):
         return result
 
     def index_dictionary(self):
-        xblock_body = super(XBlock, self).index_dictionary()
+        xblock_body = super(HLCustomTextXBlock, self).index_dictionary()
         # Removing script and style
         html_content = re.sub(
             re.compile(
