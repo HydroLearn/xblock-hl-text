@@ -20,8 +20,14 @@ Disclaimer:
 import urllib, datetime, json, urllib2
 from .utils import render_template, load_resource, resource_string
 from django.template import Context, Template
+
+# imports for content indexing support
 import re
 from xmodule.util.misc import escape_html_characters
+
+# import for adding 'editor tabs' the right way potentially
+# from xmodule.editing_module import TabsEditingDescriptor
+
 from xblock.core import XBlock
 from xblock.fields import Scope, Integer, List, String, Boolean, Dict
 from xblock.fragment import Fragment
@@ -42,6 +48,21 @@ class HLCustomTextXBlock(XBlock):
         help="Content of the text block.",
         default="<p>There doesn't appear to be any content...</p>", scope=Scope.content
     )
+
+    # this is potentially how to add editor tabs the right way... instead of js
+    #   will require inheriting from TabsEditingDescriptor
+    #
+    # tabs = [
+    #     {
+    #         'name': _("Basic"),
+    #         'template': "video/transcripts.html",
+    #         'current': True
+    #     },
+    #     {
+    #         'name': _("Advanced"),
+    #         'template': "tabs/metadata-edit-tab.html"
+    #     }
+    # ]
 
     @XBlock.json_handler
     def get_body_html(self, data, suffix=''):
