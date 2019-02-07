@@ -21,6 +21,7 @@ import urllib, datetime, json, urllib2
 from .utils import render_template, load_resource, resource_string
 from django.template import Context, Template
 import re
+from xmodule.util.misc import escape_html_characters
 from xblock.core import XBlock
 from xblock.fields import Scope, Integer, List, String, Boolean, Dict
 from xblock.fragment import Fragment
