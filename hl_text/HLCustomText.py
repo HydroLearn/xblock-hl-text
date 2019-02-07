@@ -116,43 +116,10 @@ class HLCustomTextXBlock(XBlock):
         """
         The studio view
         """
-
-        fragment = Fragment()
-        # content = json.loads(load_resource("static/studio_settings.json"))
-        # content['self'] = self
         content = {'self': self}
-
-        # attempt to load external ckeditor instance from studio config setting
-        # try:
-            # urllib2.urlopen(content["CKEDITOR_URL"])
-        # except urllib2.HTTPError, e:
-            # content["CKEDITOR_URL"] = ""
-        # except urllib2.URLError, e:
-            # content["CKEDITOR_URL"] = ""
-
-        # ***************************************** not using a fallback
-
-        # Load CodeMirror
-        # fragment.add_javascript(load_resource('static/js/codemirror/lib/codemirror.js'))
-        # fragment.add_javascript(load_resource('static/js/codemirror/mode/xml/xml.js'))
-        # fragment.add_javascript(load_resource('static/js/codemirror/mode/htmlmixed/htmlmixed.js'))
-        # fragment.add_javascript(load_resource('static/js/codemirror/mode/javascript/javascript.js'))
-        # fragment.add_javascript(load_resource('static/js/codemirror/mode/css/css.js'))
-        # fragment.add_css(load_resource('static/js/codemirror/lib/codemirror.css'))
-
-        # Load CodeMirror add-ons
-        # fragment.add_css(load_resource('static/js/codemirror/theme/mdn-like.css'))
-        # fragment.add_javascript(load_resource('static/js/codemirror/addon/edit/matchbrackets.js'))
-        # fragment.add_javascript(load_resource('static/js/codemirror/addon/edit/closebrackets.js'))
-        # fragment.add_javascript(load_resource('static/js/codemirror/addon/search/search.js'))
-        # fragment.add_javascript(load_resource('static/js/codemirror/addon/search/searchcursor.js'))
-        # fragment.add_javascript(load_resource('static/js/codemirror/addon/dialog/dialog.js'))
-        # fragment.add_css(load_resource('static/js/codemirror/addon/dialog/dialog.css'))
-
-        # *****************************************
-
-
-        # Load Studio View
+                
+        fragment = Fragment()
+        # Load fragment template
         fragment.add_content(render_template('templates/HLCustomText_edit.html', content))
 
         # add static files for styling, custom CK5 build, and template initialization

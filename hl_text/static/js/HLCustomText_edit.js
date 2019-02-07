@@ -4,7 +4,7 @@
 
 /* JavaScript for LynxTable XBlock, Studio Side. */
 function HLCK5_XBlockStudio(runtime, xblock_element) {
-
+    console.log(runtime);
     var isFullscreen = false;
 
     var sHeight = 0;
@@ -110,19 +110,31 @@ function HLCK5_XBlockStudio(runtime, xblock_element) {
     function studio_submit(commit) {
 
         commit = commit === undefined ? false : commit;
+        var handlerUrl = runtime.handlerUrl(xblock_element, 'studio_submit');
 
-        $.ajax({
-            type: "POST",
-            url: runtime.handlerUrl(xblock_element, 'studio_submit'),
-            data: JSON.stringify({
-                "commit": commit.toString(),
-                "display_name": $('.chx_display_name').val(),
-                "body_html":
-                    (ckeditor_html != "") ?
-                        ckeditor_html.getData() :
-                        editor_html.getDoc().getValue(),
-            }) // add success state that appends preview to the DOM
+        // get the form data from the edit modal
+        var data = {
+            "commit": commit.toString(),
+            "display_name": $('.chx_display_name').val(),
+            "body_html": ckeditor_html.getData(),
+        }
+
+        runtime.notify('save', {state: 'start'});
+        $.post(handlerUrl, JSON.stringify(data)).done(function(response) {
+          runtime.notify('save', {state: 'end'});
         });
+        // $.ajax({
+        //     type: "POST",
+        //     url: runtime.handlerUrl(xblock_element, 'studio_submit'),
+        //     data: JSON.stringify({
+        //         "commit": commit.toString(),
+        //         "display_name": $('.chx_display_name').val(),
+        //         "body_html":
+        //             (ckeditor_html != "") ?
+        //                 ckeditor_html.getData() :
+        //                 editor_html.getDoc().getValue(),
+        //     }) // add success state that appends preview to the DOM
+        // });
 
     }
 
@@ -180,6 +192,9 @@ function HLCK5_XBlockStudio(runtime, xblock_element) {
             setTimeout(function(){location.reload();},200);
         });
 
+        $('.action-cancel').removeClass('action-primary');
+
     });
+
 
 }
