@@ -20,6 +20,7 @@ Disclaimer:
 import urllib, datetime, json, urllib2
 from .utils import render_template, load_resource, resource_string
 from django.template import Context, Template
+import re
 from xblock.core import XBlock
 from xblock.fields import Scope, Integer, List, String, Boolean, Dict
 from xblock.fragment import Fragment
@@ -166,6 +167,32 @@ class HLCustomTextXBlock(XBlock):
             result["saved"] = "true"
 
         return result
+
+    def index_dictionary(self):
+        xblock_body = super(XBlock, self).index_dictionary()
+        # Removing script and style
+        html_content = re.sub(
+            re.compile(
+                r"""
+                    <script>.*?</script> |
+                    <style>.*?</style>
+                """,
+                re.DOTALL |
+                re.VERBOSE),
+            "",
+            self.content
+        )
+        html_content = escape_html_characters(html_content)
+        html_body = {
+            "html_content": html_content,
+            "display_name": self.display_name,
+        }
+        if "content" in xblock_body:
+            xblock_body["content"].update(html_body)
+        else:
+            xblock_body["content"] = html_body
+        xblock_body["content_type"] = "Text"
+        return xblock_body
 
     # TO-DO: change this to create the scenarios you'd like to see in the
     # workbench while developing your XBlock.
