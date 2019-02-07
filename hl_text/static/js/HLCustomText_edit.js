@@ -89,8 +89,8 @@ function HLCK5_XBlockStudio(runtime, xblock_element) {
         $('.modal-window').css({
             "top": "calc(" + top_margin + "% + " + scroll_offset + "px)",
             'left': left_margin + "%" ,
-            "width": modal_width_pct + "vw",
-            "height": modal_height_pct + "vh"
+            //"width": modal_width_pct + "vw",
+            //"height": modal_height_pct + "vh"
         });
 
     }
