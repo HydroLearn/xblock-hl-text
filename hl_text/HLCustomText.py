@@ -26,13 +26,13 @@ import re
 from xmodule.util.misc import escape_html_characters
 
 # import for adding 'editor tabs' the right way potentially
-from xmodule.editing_module import TabsEditingDescriptor
+# from xmodule.editing_module import TabsEditingDescriptor
 
 from xblock.core import XBlock
 from xblock.fields import Scope, Integer, List, String, Boolean, Dict
 from xblock.fragment import Fragment
 
-class HLCustomTextXBlock(TabsEditingDescriptor, XBlock):
+class HLCustomTextXBlock(XBlock):
     """
     TO-DO: document what your XBlock does.
     """
@@ -52,17 +52,17 @@ class HLCustomTextXBlock(TabsEditingDescriptor, XBlock):
     # this is potentially how to add editor tabs the right way... instead of js
     #   will require inheriting from TabsEditingDescriptor
     #
-    tabs = [
-        {
-            'name': _("Editor"),
-            'template': "tabs/edit_tab.html",
-            'current': True
-        },
-        {
-            'name': _("Settings"),
-            'template': "tabs/settings_tab.html"
-        }
-    ]
+    # tabs = [
+    #     {
+    #         'name': _("Editor"),
+    #         'template': "tabs/edit_tab.html",
+    #         'current': True
+    #     },
+    #     {
+    #         'name': _("Settings"),
+    #         'template': "tabs/settings_tab.html"
+    #     }
+    # ]
 
     @XBlock.json_handler
     def get_body_html(self, data, suffix=''):
