@@ -189,7 +189,7 @@ function HLCK5_XBlockStudio(runtime, xblock_element) {
         // Clicked Save button
         $('#chx_submit').click(function(eventObject) {
             studio_submit(true);
-            setTimeout(function(){location.reload();},200);
+            //setTimeout(function(){location.reload();},200);
         });
 
         $('.action-cancel').removeClass('action-primary');
