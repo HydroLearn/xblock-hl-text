@@ -76,21 +76,21 @@ function HLCK5_XBlockStudio(runtime, xblock_element) {
         return cookieValue;
     }
 
-    function place_modal(){
-        // this should really be part of the default template... not the xblock.
-
-        var scroll_offset = $('html').scrollTop();
-        var left_margin = (100 - modal_width_pct) / 2;
-        var top_margin = ((100 - modal_height_pct) / 2);
-
-        $('.modal-window.modal-type-hl_text').css({
-            "top": "calc(" + top_margin + "% + " + scroll_offset + "px)",
-            'left': left_margin + "%" ,
-            "width": modal_width_pct + "vw",
-            "height": modal_height_pct + "vh"
-        });
-
-    }
+    // function place_modal(){
+    //     // this should really be part of the default template... not the xblock.
+    //
+    //     var scroll_offset = $('html').scrollTop();
+    //     var left_margin = (100 - modal_width_pct) / 2;
+    //     var top_margin = ((100 - modal_height_pct) / 2);
+    //
+    //     $('.modal-window.modal-type-hl_text').css({
+    //         "top": "calc(" + top_margin + "% + " + scroll_offset + "px)",
+    //         'left': left_margin + "%" ,
+    //         "width": modal_width_pct + "vw",
+    //         "height": modal_height_pct + "vh"
+    //     });
+    //
+    // }
 
     function tab_highlight(toHighlight) {
         $('.modal-window .editor-modes .modal_tab').removeClass('is-set');
@@ -175,14 +175,14 @@ function HLCK5_XBlockStudio(runtime, xblock_element) {
         tab_switch("editor");
 
         // Readjust modal window dimensions in case the browser window is resized
-        window.addEventListener('resize', function() {
-            place_modal();
-        });
-
-        // reposition modal on window scroll
-        window.addEventListener('scroll', function() {
-            place_modal();
-        });
+        // window.addEventListener('resize', function() {
+        //     place_modal();
+        // });
+        //
+        // // reposition modal on window scroll
+        // window.addEventListener('scroll', function() {
+        //     place_modal();
+        // });
 
         $('.modal-window .editor-modes .modal_tab').click(function(){
             tab_switch($(this).attr('data-mode'));
