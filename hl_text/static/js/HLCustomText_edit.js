@@ -5,10 +5,11 @@
 /* JavaScript for LynxTable XBlock, Studio Side. */
 function HLCK5_XBlockStudio(runtime, xblock_element) {
     console.log("runtime:");
-    console.log(runtime);
+    console.log(runtime.course_id);
 
     console.log("element:");
     console.log(xblock_element);
+
     var isFullscreen = false;
 
     var sHeight = 0;
