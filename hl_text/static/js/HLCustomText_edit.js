@@ -4,7 +4,7 @@
 
 /* JavaScript for LynxTable XBlock, Studio Side. */
 function HLCK5_XBlockStudio(runtime, xblock_element) {
-    
+
     var isFullscreen = false;
 
     var sHeight = 0;
@@ -77,6 +77,8 @@ function HLCK5_XBlockStudio(runtime, xblock_element) {
     }
 
     function place_modal(){
+        // this should really be part of the default template... not the xblock.
+
         var scroll_offset = $('html').scrollTop();
         var left_margin = (100 - modal_width_pct) / 2;
         var top_margin = ((100 - modal_height_pct) / 2);
@@ -84,8 +86,8 @@ function HLCK5_XBlockStudio(runtime, xblock_element) {
         $('.modal-window').css({
             "top": "calc(" + top_margin + "% + " + scroll_offset + "px)",
             'left': left_margin + "%" ,
-            //"width": modal_width_pct + "vw",
-            //"height": modal_height_pct + "vh"
+            "width": modal_width_pct + "vw",
+            "height": modal_height_pct + "vh"
         });
 
     }
