@@ -1,3 +1,4 @@
+/* JavaScript for HydroLearn's text editor XBlock, LMS Side. */
 function HLCK5_XBlock(runtime, xblock_element) {
 
     $(function ($) {

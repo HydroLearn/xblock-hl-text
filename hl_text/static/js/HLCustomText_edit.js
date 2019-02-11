@@ -1,8 +1,4 @@
-// using jQuery
-
-
-
-/* JavaScript for LynxTable XBlock, Studio Side. */
+/* JavaScript for HydroLearn's text editor XBlock, Studio Side. */
 function HLCK5_XBlockStudio(runtime, xblock_element) {
 
     var isFullscreen = false;
