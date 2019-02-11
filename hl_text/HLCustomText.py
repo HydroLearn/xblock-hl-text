@@ -46,7 +46,8 @@ class HLCustomTextXBlock(XBlock):
 
     content = String(
         help="Content of the text block.",
-        default="<p>There doesn't appear to be any content...</p>", scope=Scope.content
+        default="<p>There doesn't appear to be any content...</p>",
+        scope=Scope.content,
     )
 
     # this is potentially how to add editor tabs the right way... instead of js
@@ -117,7 +118,7 @@ class HLCustomTextXBlock(XBlock):
         The studio view
         """
         content = {'self': self}
-                
+
         fragment = Fragment()
         # Load fragment template
         fragment.add_content(render_template('templates/HLCustomText_edit.html', content))
