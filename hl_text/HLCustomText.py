@@ -30,7 +30,8 @@ from xmodule.util.misc import escape_html_characters
 
 from xblock.core import XBlock
 from xblock.fields import Scope, Integer, List, String, Boolean, Dict
-from xblock.fragment import Fragment
+#from xblock.fragment import Fragment
+from web_fragments.fragment import Fragment
 
 class HLCustomTextXBlock(XBlock):
     """
