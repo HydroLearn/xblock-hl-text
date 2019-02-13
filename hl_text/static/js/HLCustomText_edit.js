@@ -1,5 +1,7 @@
 /* JavaScript for HydroLearn's text editor XBlock, Studio Side. */
 function HLCK5_XBlockStudio(runtime, xblock_element) {
+    // add modal tag so it's width gets adjusted on window resize
+    $('.modal-window', xblock_element).addClass('hl_resize_correction')
 
     var isFullscreen = false;
 
