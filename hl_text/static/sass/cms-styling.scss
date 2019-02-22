@@ -31,15 +31,18 @@
 }
 
 
+$editor_border_size: 1px;
 
 .document-editor {
-    border: 1px solid var(--ck-color-base-border);
+    border: $editor_border_size solid var(--ck-color-base-border);
     border-radius: var(--ck-border-radius);
 
     /* Set vertical boundaries for the document editor. */
     /* max-height: 700px; */
     //height: -webkit-fill-available;
-    height:100%;
+    //height:100%;
+    // removing 2 px from height to account for editor's borders
+    height: calc(100% - #{$editor_border_size * 2});
 
     /* This element is a flex container for easier rendering. */
     display: flex;

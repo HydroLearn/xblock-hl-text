@@ -6,6 +6,7 @@
 //
 //      and adding styling for custom modal 'tabs' added by interface
 //          (this will likely change once 'correct' method of generating tabs is discovered)
+$action_container_height: 56px;
 
 .modal-window.hl_resize_correction{
 
@@ -32,13 +33,13 @@
                 //  reserved space (actions are floating container by default...)
                 .modal-content-wrapper{
                     // add margin to content wrapper to account for floating editor buttons
-                    height: calc(100% - 60px);
-                    margin-bottom: 60px;
+                    height: calc(100% - #{$action_container_height});
+                    margin-bottom: $action_container_height;
 
                     .modal_tab_view{
                         width: 100%;
                         overflow-y: auto;
-                        
+
                     }
                 }
             }
