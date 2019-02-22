@@ -1,0 +1,22 @@
+.modal-window.hl_resize_correction .edit-xblock-modal {
+  display: flex;
+  flex-flow: column;
+  height: 100%; }
+  .modal-window.hl_resize_correction .edit-xblock-modal .modal-header {
+    flex-grow: unset; }
+  .modal-window.hl_resize_correction .edit-xblock-modal .modal-content {
+    overflow: hidden !important;
+    flex-grow: 1; }
+    .modal-window.hl_resize_correction .edit-xblock-modal .modal-content .xblock-editor, .modal-window.hl_resize_correction .edit-xblock-modal .modal-content .xblock-studio_view, .modal-window.hl_resize_correction .edit-xblock-modal .modal-content .editor-with-buttons, .modal-window.hl_resize_correction .edit-xblock-modal .modal-content .modal_tab_view {
+      height: 100%; }
+    .modal-window.hl_resize_correction .edit-xblock-modal .modal-content .editor-with-buttons .modal-content-wrapper {
+      height: calc(100% - 60px);
+      margin-bottom: 60px; }
+      .modal-window.hl_resize_correction .edit-xblock-modal .modal-content .editor-with-buttons .modal-content-wrapper .modal_tab_view {
+        width: 100%;
+        overflow-y: auto;
+        height: calc(100% - 60px); }
+  .modal-window.hl_resize_correction .edit-xblock-modal .modal-actions {
+    flex-grow: unset; }
+
+/*# sourceMappingURL=modal-styling.css.map */

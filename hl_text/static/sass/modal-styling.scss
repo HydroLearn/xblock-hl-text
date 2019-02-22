@@ -1,0 +1,51 @@
+// custom styling overrides for displaying the xblock modal
+//  used to make the display of modals 'friendlier'
+//      i.e.
+//          - no fixed height/widths in content
+//          - follows user around when scrolling main window
+//
+//      and adding styling for custom modal 'tabs' added by interface
+//          (this will likely change once 'correct' method of generating tabs is discovered)
+
+.modal-window.hl_resize_correction{
+
+    .edit-xblock-modal{
+        display: flex;
+        flex-flow: column;
+        height: 100%;
+
+        .modal-header{
+            flex-grow: unset;
+        }
+
+        .modal-content {
+        	overflow: hidden !important;
+            flex-grow: 1;
+
+            .xblock-editor, .xblock-studio_view, .editor-with-buttons, .modal_tab_view{
+                height: 100%;
+            }
+
+            .editor-with-buttons{
+                // if the modal displays action buttons at the bottom
+                //  add spacing to content wrapper to account for
+                //  reserved space (actions are floating container by default...)
+                .modal-content-wrapper{
+                    // add margin to content wrapper to account for floating editor buttons
+                    height: calc(100% - 60px);
+                    margin-bottom: 60px;
+
+                    .modal_tab_view{
+                        width: 100%;
+                        overflow-y: auto;
+                        height: calc(100% - 60px);
+                    }
+                }
+            }
+
+        }
+        .modal-actions {
+            flex-grow: unset;
+        }
+    }
+}

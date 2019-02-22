@@ -51,21 +51,6 @@ class HLCustomTextXBlock(XBlock):
         scope=Scope.content,
     )
 
-    # this is potentially how to add editor tabs the right way... instead of js
-    #   will require inheriting from TabsEditingDescriptor
-    #
-    # tabs = [
-    #     {
-    #         'name': _("Editor"),
-    #         'template': "tabs/edit_tab.html",
-    #         'current': True
-    #     },
-    #     {
-    #         'name': _("Settings"),
-    #         'template': "tabs/settings_tab.html"
-    #     }
-    # ]
-
     @XBlock.json_handler
     def get_body_html(self, data, suffix=''):
         return {"content": self.content}
@@ -126,6 +111,7 @@ class HLCustomTextXBlock(XBlock):
 
         # add static files for styling, custom CK5 build, and template initialization
         fragment.add_css(load_resource('static/css/cms-styling.css'))
+        fragment.add_css(load_resource('static/css/modal-styling.css'))
         fragment.add_css(load_resource('static/css/ck-content-styling.css'))
         fragment.add_javascript(unicode(render_template('static/js/HL_ck5_custom.js', content)))
         fragment.add_javascript(unicode(render_template('static/js/HLCustomText_edit.js', content)))

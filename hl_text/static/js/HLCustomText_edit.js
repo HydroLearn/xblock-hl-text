@@ -141,16 +141,16 @@ function HLCK5_XBlockStudio(runtime, xblock_element) {
     $(function($) {
 
         // Add Save Button
-        $('ul', '.modal-actions')
-            .prepend(
-                $('<li>', {class: "action-item"}).append(
-                    $('<a />', {
-                        class: "action-primary",
-                        id: "chx_submit",
-                        text: "Save"
-                    })
-                )
-            );
+        // $('ul', '.modal-actions')
+        //     .prepend(
+        //         $('<li>', {class: "action-item"}).append(
+        //             $('<a />', {
+        //                 class: "action-primary",
+        //                 id: "chx_submit",
+        //                 text: "Save"
+        //             })
+        //         )
+        //     );
 
         // add actions for the top of the modal to switch views
         for (var mode in studio_buttons) {
@@ -187,7 +187,7 @@ function HLCK5_XBlockStudio(runtime, xblock_element) {
         });
 
         // Clicked Save button
-        $('#chx_submit').click(function(eventObject) {
+        $('#modal_submit').click(function(eventObject) {
             studio_submit(true);
             //setTimeout(function(){location.reload();},200);
         });
