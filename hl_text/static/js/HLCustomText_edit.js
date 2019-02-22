@@ -186,13 +186,15 @@ function HLCK5_XBlockStudio(runtime, xblock_element) {
             tab_switch($(this).attr('data-mode'));
         });
 
-        // Clicked Save button
-        $('#modal_submit').click(function(eventObject) {
+        // save button clicked
+        $(xblock_element).find('.save-button').bind('click', function() {
             studio_submit(true);
-            //setTimeout(function(){location.reload();},200);
         });
 
-        $('.action-cancel').removeClass('action-primary');
+        // cancel button clicked
+        $(xblock_element).find('.cancel-button').bind('click', function() {
+            runtime.notify('cancel', {});
+        });
 
     });
 
