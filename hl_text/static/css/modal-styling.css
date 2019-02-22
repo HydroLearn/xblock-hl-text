@@ -14,8 +14,7 @@
       margin-bottom: 60px; }
       .modal-window.hl_resize_correction .edit-xblock-modal .modal-content .editor-with-buttons .modal-content-wrapper .modal_tab_view {
         width: 100%;
-        overflow-y: auto;
-        height: calc(100% - 60px); }
+        overflow-y: auto; }
   .modal-window.hl_resize_correction .edit-xblock-modal .modal-actions {
     flex-grow: unset; }
 
