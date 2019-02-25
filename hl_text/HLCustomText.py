@@ -54,11 +54,11 @@ class HLCustomTextXBlock(XBlock):
         scope=Scope.content,
     )
 
-    def get_empty_template_name(self):
-        return 'templates/empty_template.html'
+    empty_template = 'templates/empty_template.html'
+
 
     def get_empty_template(self, context={}):
-        return render_template(self.get_empty_template_name(), context)
+        return render_template(self.empty_template, context)
 
     @XBlock.json_handler
     def get_body_html(self, data, suffix=''):
