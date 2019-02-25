@@ -39,11 +39,8 @@ class HLCustomTextXBlock(XBlock):
         generate an instance of custom CK5 editor providing rich textual content
         input in xblocks.
 
-        A starter template can be provided by specifying the 'empty_template' property
-        or overriding the 'get_empty_template' method.
+        A starter template can be provided by overriding the 'get_empty_template' method.
     """
-    empty_template = 'templates/empty_template.html'
-
     display_name = String(
         display_name="Component Display Name",
         help="This name appears in the horizontal navigation at the top of the page",
@@ -57,8 +54,11 @@ class HLCustomTextXBlock(XBlock):
         scope=Scope.content,
     )
 
+    def get_empty_template_name(self):
+        return 'templates/empty_template.html'
+
     def get_empty_template(self, context={}):
-        return render_template(self.empty_template, context)
+        return render_template(self.get_empty_template_name(), context)
 
     @XBlock.json_handler
     def get_body_html(self, data, suffix=''):
