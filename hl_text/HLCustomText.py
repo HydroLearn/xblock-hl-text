@@ -33,6 +33,29 @@ from xblock.fields import Scope, Integer, List, String, Boolean, Dict
 #from xblock.fragment import Fragment
 from web_fragments.fragment import Fragment
 
+class StudioModalFixMixin(object):
+
+    def studio_view(self, context=None):
+        """
+            The studio view of the xblock
+
+            return: a web fragment containing the necessary styles/scripts/templates
+                for rendering the xblock editor in the cms xblock modal window.
+
+
+        """
+        # THIS TECHINCALLY CAN HAPPEN AS A MIXIN (expected to just do, not inherit)
+        fragment = super(StudioModalFixMixin, self).studio_view(context)
+
+        # add in the styling/script corrections for HL xblock component modals
+        fragment.add_css(load_resource('static/css/modal-styling.css'))
+        fragment.add_javascript(load_resource('static/js/StudioModalFix.js'))
+
+        # fragment.add_javascript(load_resource('static/js/HLCustomText_edit.js'))
+        fragment.initialize_js('StudioModalFix_script')
+
+        return fragment
+
 
 class HLCustomTextXBlock(XBlock):
     """

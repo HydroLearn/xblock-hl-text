@@ -1,9 +1,8 @@
 /* JavaScript for HydroLearn's text editor XBlock, Studio Side. */
 function HLCK5_XBlockStudio(runtime, xblock_element) {
+
     // add modal tag so it's width gets adjusted on window resize
     $(xblock_element).closest('.modal-window').addClass('hl_resize_correction');
-
-    var isFullscreen = false;
 
     var sHeight = 0;
     var sWidth = "70%";
@@ -15,7 +14,6 @@ function HLCK5_XBlockStudio(runtime, xblock_element) {
 
     var editor_element_id = "HL_Text_editorBody";
 
-
     // Define mapping of tabs (modes) to display names
     var studio_buttons = {
         "editor": "EDITOR",
@@ -23,8 +21,6 @@ function HLCK5_XBlockStudio(runtime, xblock_element) {
     };
 
     var ckeditor_html = "";
-    var editor_html = "";
-    var ckeditor_html_flag = true;
 
     if(typeof(HL_CKEDITOR) != 'undefined'){
         console.log("HL_CKEDITOR was loaded.")
@@ -54,7 +50,7 @@ function HLCK5_XBlockStudio(runtime, xblock_element) {
 
     }else{
         alert("HL_CKEDITOR was not found!")
-        ckeditor_html_flag = false;
+
     }
 
 
@@ -73,22 +69,6 @@ function HLCK5_XBlockStudio(runtime, xblock_element) {
         }
         return cookieValue;
     }
-
-    // function place_modal(){
-    //     // this should really be part of the default template... not the xblock.
-    //
-    //     var scroll_offset = $('html').scrollTop();
-    //     var left_margin = (100 - modal_width_pct) / 2;
-    //     var top_margin = ((100 - modal_height_pct) / 2);
-    //
-    //     $('.modal-window.modal-type-hl_text').css({
-    //         "top": "calc(" + top_margin + "% + " + scroll_offset + "px)",
-    //         'left': left_margin + "%" ,
-    //         "width": modal_width_pct + "vw",
-    //         "height": modal_height_pct + "vh"
-    //     });
-    //
-    // }
 
     function tab_highlight(toHighlight) {
         $('.modal-window .editor-modes .modal_tab').removeClass('is-set');
@@ -123,34 +103,9 @@ function HLCK5_XBlockStudio(runtime, xblock_element) {
         $.post(handlerUrl, JSON.stringify(data)).done(function(response) {
           runtime.notify('save', {state: 'end'});
         });
-        // $.ajax({
-        //     type: "POST",
-        //     url: runtime.handlerUrl(xblock_element, 'studio_submit'),
-        //     data: JSON.stringify({
-        //         "commit": commit.toString(),
-        //         "display_name": $('.chx_display_name').val(),
-        //         "body_html":
-        //             (ckeditor_html != "") ?
-        //                 ckeditor_html.getData() :
-        //                 editor_html.getDoc().getValue(),
-        //     }) // add success state that appends preview to the DOM
-        // });
-
     }
 
     $(function($) {
-
-        // Add Save Button
-        // $('ul', '.modal-actions')
-        //     .prepend(
-        //         $('<li>', {class: "action-item"}).append(
-        //             $('<a />', {
-        //                 class: "action-primary",
-        //                 id: "chx_submit",
-        //                 text: "Save"
-        //             })
-        //         )
-        //     );
 
         // add actions for the top of the modal to switch views
         for (var mode in studio_buttons) {
@@ -172,15 +127,6 @@ function HLCK5_XBlockStudio(runtime, xblock_element) {
         // Set main pane to Options
         tab_switch("editor");
 
-        // Readjust modal window dimensions in case the browser window is resized
-        // window.addEventListener('resize', function() {
-        //     place_modal();
-        // });
-        //
-        // // reposition modal on window scroll
-        // window.addEventListener('scroll', function() {
-        //     place_modal();
-        // });
 
         $('.modal-window .editor-modes .modal_tab').click(function(){
             tab_switch($(this).attr('data-mode'));
