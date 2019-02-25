@@ -13,7 +13,7 @@
   .modal-type-hl_text .edit-xblock-modal .modal-content {
     overflow: hidden !important;
     flex-grow: 1; }
-    .modal-type-hl_text .edit-xblock-modal .modal-content .xblock-editor, .modal-type-hl_text .edit-xblock-modal .modal-content .xblock-studio_view, .modal-type-hl_text .edit-xblock-modal .modal-content .HLCustomText_xblock_studio, .modal-type-hl_text .edit-xblock-modal .modal-content .modal_tab_view {
+    .modal-type-hl_text .edit-xblock-modal .modal-content .xblock-editor, .modal-type-hl_text .edit-xblock-modal .modal-content .xblock-studio_view, .modal-type-hl_text .edit-xblock-modal .modal-content .hl_text_xblock_studio, .modal-type-hl_text .edit-xblock-modal .modal-content .modal_tab_view {
       height: 100%; }
   .modal-type-hl_text .edit-xblock-modal .modal-actions {
     flex-grow: unset; }

@@ -51,13 +51,12 @@ class StudioModalFixMixin(object):
         fragment.add_css(load_resource('static/css/modal-styling.css'))
         fragment.add_javascript(load_resource('static/js/StudioModalFix.js'))
 
-        # fragment.add_javascript(load_resource('static/js/HLCustomText_edit.js'))
         fragment.initialize_js('StudioModalFix_script')
 
         return fragment
 
 
-class HLCustomTextXBlock(XBlock):
+class hl_text_XBlock(XBlock):
     """
         generate an instance of custom CK5 editor providing rich textual content
         input in xblocks.
@@ -109,13 +108,13 @@ class HLCustomTextXBlock(XBlock):
 
         fragment = Fragment()
         # Load fragment template
-        fragment.add_content(render_template('templates/HLCustomText.html', content))
+        fragment.add_content(render_template('templates/hl_text-lms.html', content))
 
         fragment.add_css(load_resource('static/css/lms-styling.css'))
         fragment.add_css(load_resource('static/css/ck-content-styling.css'))
 
         # add the custom initialization code for the LMS view and initialize it
-        fragment.add_javascript(load_resource('static/js/HLCustomText_lms.js'))
+        fragment.add_javascript(load_resource('static/js/hl_text-lms.js'))
         fragment.initialize_js('HLCK5_XBlock')
 
         return fragment
@@ -135,15 +134,15 @@ class HLCustomTextXBlock(XBlock):
 
         fragment = Fragment()
         # Load fragment template
-        fragment.add_content(render_template('templates/HLCustomText_edit.html', content))
+        fragment.add_content(render_template('templates/hl-text_cms.html', content))
 
         # add static files for styling, custom CK5 build, and template initialization
         fragment.add_css(load_resource('static/css/cms-styling.css'))
         fragment.add_css(load_resource('static/css/modal-styling.css'))
         fragment.add_css(load_resource('static/css/ck-content-styling.css'))
         fragment.add_javascript(load_resource('static/js/HL_ck5_custom.js'))
-        fragment.add_javascript(load_resource('static/js/HLCustomText_edit.js'))
-        fragment.initialize_js('HLCK5_XBlockStudio')
+        fragment.add_javascript(load_resource('static/js/hl_text-cms.js'))
+        fragment.initialize_js('HL_TEXT_STUDIO')
 
         return fragment
 
@@ -174,7 +173,7 @@ class HLCustomTextXBlock(XBlock):
         return result
 
     def index_dictionary(self):
-        xblock_body = super(HLCustomTextXBlock, self).index_dictionary()
+        xblock_body = super(hl_text_XBlock, self).index_dictionary()
         # Removing script and style
         html_content = re.sub(
             re.compile(
@@ -205,7 +204,7 @@ class HLCustomTextXBlock(XBlock):
     def workbench_scenarios():
         """A canned scenario for display in the workbench."""
         return [
-            ("HLCustomTextXBlock",
-             """<HLCustomText/>
+            ("HLTextXBlock",
+             """<HLText/>
              """),
         ]

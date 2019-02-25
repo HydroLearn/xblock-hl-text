@@ -13,10 +13,10 @@ path the local template. an example of a basic xblock inheriting from HL_Text is
 
 ```
 # import the hydrolearn custom text xblock
-from hl_text import HLCustomTextXBlock
+from hl_text import hl_text_XBlock
 
 # inherit from the custom text xblock
-class HL_Text_Child(HLCustomTextXBlock):
+class HL_Text_Child(hl_text_XBlock):
 
     # provide an override for the new child's display name so it doesn't appear
     #   as 'HydroLearn Text Block' in the cms view.
