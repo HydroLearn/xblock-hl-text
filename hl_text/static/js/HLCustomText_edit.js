@@ -83,7 +83,7 @@ function HLCK5_XBlockStudio(runtime, xblock_element) {
         $('.modal-window .modal_tab_view').hide()
         $('.modal-window .modal_tab_view[data-mode="' + toShow + '"]').show();
 
-        place_modal();
+        $('body').trigger('resize_modal')
     }
 
     // Send current code and settings to the backend
