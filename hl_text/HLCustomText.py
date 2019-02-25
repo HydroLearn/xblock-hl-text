@@ -72,7 +72,10 @@ class HLCustomTextXBlock(XBlock):
 
     def student_view(self, context=None):
         """
-        The student view
+            The student view of the xblock
+
+            return: a web fragment containing the necessary styles/scripts/templates
+                for rendering the xblock in the lms portion of the site and cms preview
         """
 
         # i assume this is making the xblock instance available from the front end
@@ -96,7 +99,12 @@ class HLCustomTextXBlock(XBlock):
 
     def studio_view(self, context=None):
         """
-        The studio view
+            The studio view of the xblock
+
+            return: a web fragment containing the necessary styles/scripts/templates
+                for rendering the xblock editor in the cms xblock modal window.
+
+
         """
         content = {}
         content['self'] = self
