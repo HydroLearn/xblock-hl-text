@@ -9,8 +9,12 @@
             <div class="document-editor">
                 <div class="document-editor__toolbar"></div>
                 <div class="document-editor__editable-container">
-                    <div id="HL_Text_editorBody" class="document-editor__editable">
-                        {{ self.content|safe }}
+                    <div id="HL_Text_editorBody" class="document-editor__editable ck-content">
+                        {% if self.content %}
+                            {{ self.content|safe }}
+                        {% else %}
+                            {{ empty_template|safe }}
+                        {% endif %}
                     </div>
                 </div>
             </div>

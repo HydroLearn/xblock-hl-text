@@ -1,8 +1,7 @@
-<h1>HLCustomText.html</h1>
-<p>
-	apparently this file doesn't get used according to the example code...
-</p>
-
-<p>
-	If you're seeing this, that was obviously a lie. I feel betrayed... 
-</p>
+<div class='HL_Text ck-content'>
+    {% if self.content %}
+        {{ self.content|safe }}
+    {% else %}
+        {{ empty_template|safe }}
+    {% endif %}
+</div>

@@ -33,10 +33,16 @@ from xblock.fields import Scope, Integer, List, String, Boolean, Dict
 #from xblock.fragment import Fragment
 from web_fragments.fragment import Fragment
 
+
 class HLCustomTextXBlock(XBlock):
     """
-    TO-DO: document what your XBlock does.
+        generate an instance of custom CK5 editor providing rich textual content
+        input in xblocks.
+
+        A starter template can be provided by specifying the 'empty_template' property
+        or overriding the 'get_empty_template' method.
     """
+    empty_template = 'templates/empty_template.html'
 
     display_name = String(
         display_name="Component Display Name",
@@ -47,9 +53,12 @@ class HLCustomTextXBlock(XBlock):
 
     content = String(
         help="Content of the text block.",
-        default="<p>There doesn't appear to be any content...</p>",
+        default="",
         scope=Scope.content,
     )
+
+    def get_empty_template(context={}):
+        return render_template(self.empty_template, context)
 
     @XBlock.json_handler
     def get_body_html(self, data, suffix=''):
@@ -83,18 +92,32 @@ class HLCustomTextXBlock(XBlock):
         # i assume this is making the xblock instance available from the front end
         # since 'content' is being passed as context for the template.
 
-        content = {'self': self}
+        content = {
+            'self': self,
+            'empty_template': self.get_empty_template(),
+            }
 
-        body_html = unicode(self.generate_html(self.content))
+        # if there is saved content, render it, otherwise render the empty template
+        # if self.content:
+        #     body_html = unicode(self.generate_html(self.content))
+        # else:
+        #     body_html = self.get_empty_template(content)
+
+
+
+
         fragment.add_css(load_resource('static/css/lms-styling.css'))
         fragment.add_css(load_resource('static/css/ck-content-styling.css'))
-        fragment.add_content(Template(body_html).render(Context(content)))
-        #fragment.add_content(render_template('templates/HLCustomText.html', content))
 
+        # render the student view template
+        # potentially remove this...
+        # fragment.add_content(Template(body_html).render(Context(content)))
+        #fragment.add_content(render_template('templates/HLCustomText.html', content))
+        fragment.add_content(render_template('templates/HLCustomText.html', content))
 
 
         # add the custom initialization code for the LMS view and initialize it
-        fragment.add_javascript(unicode(render_template('static/js/HLCustomText_lms.js', content)))
+        fragment.add_javascript(load_resource('static/js/HLCustomText_lms.js'))
         fragment.initialize_js('HLCK5_XBlock')
 
         return fragment
@@ -103,7 +126,10 @@ class HLCustomTextXBlock(XBlock):
         """
         The studio view
         """
-        content = {'self': self}
+        content = {
+            'self': self,
+            'empty_template': self.get_empty_template(),
+        }
 
         fragment = Fragment()
         # Load fragment template
@@ -113,8 +139,8 @@ class HLCustomTextXBlock(XBlock):
         fragment.add_css(load_resource('static/css/cms-styling.css'))
         fragment.add_css(load_resource('static/css/modal-styling.css'))
         fragment.add_css(load_resource('static/css/ck-content-styling.css'))
-        fragment.add_javascript(unicode(render_template('static/js/HL_ck5_custom.js', content)))
-        fragment.add_javascript(unicode(render_template('static/js/HLCustomText_edit.js', content)))
+        fragment.add_javascript(load_resource('static/js/HL_ck5_custom.js'))
+        fragment.add_javascript(load_resource('static/js/HLCustomText_edit.js'))
         fragment.initialize_js('HLCK5_XBlockStudio')
 
         return fragment
