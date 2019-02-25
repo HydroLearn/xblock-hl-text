@@ -92,10 +92,8 @@ class HLCustomTextXBlock(XBlock):
         # i assume this is making the xblock instance available from the front end
         # since 'content' is being passed as context for the template.
 
-        content = {
-            'self': self,
-            'empty_template': self.get_empty_template(content),
-            }
+        content['self'] = self
+        content['empty_template'] = self.get_empty_template(content)
 
         # if there is saved content, render it, otherwise render the empty template
         # if self.content:
@@ -126,10 +124,8 @@ class HLCustomTextXBlock(XBlock):
         """
         The studio view
         """
-        content = {
-            'self': self,
-            'empty_template': self.get_empty_template(content),
-        }
+        content['self'] = self
+        content['empty_template'] = self.get_empty_template(content)
 
         fragment = Fragment()
         # Load fragment template
