@@ -94,7 +94,7 @@ class HLCustomTextXBlock(XBlock):
 
         content = {
             'self': self,
-            'empty_template': self.get_empty_template(),
+            'empty_template': self.get_empty_template(content),
             }
 
         # if there is saved content, render it, otherwise render the empty template
@@ -128,7 +128,7 @@ class HLCustomTextXBlock(XBlock):
         """
         content = {
             'self': self,
-            'empty_template': self.get_empty_template(),
+            'empty_template': self.get_empty_template(content),
         }
 
         fragment = Fragment()
