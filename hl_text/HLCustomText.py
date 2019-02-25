@@ -65,16 +65,6 @@ class HLCustomTextXBlock(XBlock):
         return {"content": self.content}
 
     @staticmethod
-    def generate_html(html):
-        # add a wrapper around the content so ck-styling applies
-        result = "<div class='HL_Text ck-content'>"
-        # Assume valid HTML code
-        result += html
-        result += "</div>"
-
-        return result
-
-    @staticmethod
     def update_student_settings_backend(source, settings):
         """
         Returns dictionary that is source merged with settings
@@ -87,7 +77,6 @@ class HLCustomTextXBlock(XBlock):
         """
         The student view
         """
-        fragment = Fragment()
 
         # i assume this is making the xblock instance available from the front end
         # since 'content' is being passed as context for the template.
@@ -95,24 +84,12 @@ class HLCustomTextXBlock(XBlock):
         content['self'] = self
         content['empty_template'] = self.get_empty_template(content)
 
-        # if there is saved content, render it, otherwise render the empty template
-        # if self.content:
-        #     body_html = unicode(self.generate_html(self.content))
-        # else:
-        #     body_html = self.get_empty_template(content)
-
-
-
+        fragment = Fragment()
+        # Load fragment template
+        fragment.add_content(render_template('templates/HLCustomText.html', content))
 
         fragment.add_css(load_resource('static/css/lms-styling.css'))
         fragment.add_css(load_resource('static/css/ck-content-styling.css'))
-
-        # render the student view template
-        # potentially remove this...
-        # fragment.add_content(Template(body_html).render(Context(content)))
-        #fragment.add_content(render_template('templates/HLCustomText.html', content))
-        fragment.add_content(render_template('templates/HLCustomText.html', content))
-
 
         # add the custom initialization code for the LMS view and initialize it
         fragment.add_javascript(load_resource('static/js/HLCustomText_lms.js'))
