@@ -134,7 +134,7 @@ class hl_text_XBlock(XBlock):
 
         fragment = Fragment()
         # Load fragment template
-        fragment.add_content(render_template('templates/hl-text_cms.html', content))
+        fragment.add_content(render_template('templates/hl_text-cms.html', content))
 
         # add static files for styling, custom CK5 build, and template initialization
         fragment.add_css(load_resource('static/css/cms-styling.css'))
