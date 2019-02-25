@@ -57,7 +57,7 @@ class HLCustomTextXBlock(XBlock):
         scope=Scope.content,
     )
 
-    def get_empty_template(context={}):
+    def get_empty_template(self, context={}):
         return render_template(self.empty_template, context)
 
     @XBlock.json_handler
