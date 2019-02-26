@@ -1,3 +1,7 @@
+.ck-content i {
+  font-style: italic; }
+.ck-content b, .ck-content strong {
+  font-weight: bold; }
 .ck-content h1, .ck-content h2, .ck-content h3, .ck-content h4, .ck-content h5, .ck-content h6 {
   font-weight: 600 !important;
   font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
@@ -5,23 +9,29 @@
   text-transform: none !important; }
 .ck-content h1 {
   font-size: 2em !important;
+  line-height: 2em;
   color: #232323 !important; }
 .ck-content h2 {
   font-size: 1.8em !important;
+  line-height: 1.8em;
   color: #232323 !important;
   border-bottom: 1px solid #ccc !important; }
 .ck-content h3 {
-  font-size: 1.4em !important;
+  font-size: 1.3em !important;
+  line-height: 1.4em;
   color: #232323 !important;
   border-bottom: 1px solid #ccc !important; }
 .ck-content h4 {
-  font-size: 1.4em !important;
+  font-size: 1.2em !important;
+  line-height: 1.3em;
   color: #7f7f7f !important; }
 .ck-content h5 {
   font-size: 1.2em !important;
+  line-height: 1.2em;
   color: #7f7f7f !important; }
 .ck-content h6 {
   font-size: 1.1em !important;
+  line-height: 1.1em;
   color: #7f7f7f !important; }
 .ck-content ul, .ck-content ol {
   margin-left: 2em; }

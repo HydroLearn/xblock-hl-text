@@ -1,6 +1,15 @@
 @import 'branding';
 
 .ck-content {
+
+    i {
+        font-style: italic;
+    }
+
+    b,strong {
+        font-weight: bold;
+    }
+
     h1,h2,h3,h4,h5,h6{
         font-weight: 600 !important;
         font-family: $default_font !important;
@@ -9,28 +18,36 @@
     }
     h1{
         font-size: 2em !important;
+        line-height: 2em;
         color: $gray_dark !important;
+
     }
     h2{
         font-size: 1.8em !important;
+        line-height: 1.8em;
         color: $gray_dark !important;
         border-bottom: 1px solid #ccc !important;
+
     }
     h3{
-        font-size: 1.4em !important;
+        font-size: 1.3em !important;
+        line-height: 1.4em;
         color: $gray_dark !important;
         border-bottom: 1px solid #ccc !important;
     }
     h4{
-        font-size: 1.4em !important;
+        font-size: 1.2em !important;
+        line-height: 1.3em;
         color: $gray_med !important;
     }
     h5{
         font-size: 1.2em !important;
+        line-height: 1.2em;
         color: $gray_med !important;
     }
     h6{
         font-size: 1.1em !important;
+        line-height: 1.1em;
         color: $gray_med !important;
     }
 
@@ -148,4 +165,6 @@
         margin-left: calc( 2 * var(--ck-spacing-large) );
         margin-right: calc( 2 * var(--ck-spacing-large) );
     }
+
+
 }
