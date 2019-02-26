@@ -4,14 +4,6 @@ function HL_TEXT_STUDIO(runtime, xblock_element) {
     // add modal tag so it's width gets adjusted on window resize
     $(xblock_element).closest('.modal-window').addClass('hl_resize_correction');
 
-    var sHeight = 0;
-    var sWidth = "70%";
-    var sTop = "15.5%";
-    var sLeft = "15%";
-
-    var modal_height_pct = 80;
-    var modal_width_pct = 80;
-
     var editor_element_id = "HL_Text_editorBody";
 
     // Define mapping of tabs (modes) to display names
