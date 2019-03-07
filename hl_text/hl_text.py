@@ -33,6 +33,7 @@ from xblock.fields import Scope, Integer, List, String, Boolean, Dict
 #from xblock.fragment import Fragment
 from web_fragments.fragment import Fragment
 
+# currently UNUSED until better implemented
 class StudioModalFixMixin(object):
 
     def studio_view(self, context=None):
@@ -45,7 +46,8 @@ class StudioModalFixMixin(object):
 
         """
         # THIS TECHINCALLY CAN HAPPEN AS A MIXIN (expected to just do, not inherit)
-        fragment = super(StudioModalFixMixin, self).studio_view(context)
+        # fragment = super(StudioModalFixMixin, self).studio_view(context)
+        fragment = Fragment()
 
         # add in the styling/script corrections for HL xblock component modals
         fragment.add_css(load_resource('static/css/modal-styling.css'))
@@ -63,11 +65,14 @@ class hl_text_XBlock(XBlock):
 
         A starter template can be provided by overriding the 'get_empty_template' method.
     """
+    CATEGORY = "hl_text"
+    STUDIO_LABEL = "Text"
+
     display_name = String(
-        display_name="Component Display Name",
+        display_name="Display Name",
         help="This name appears in the horizontal navigation at the top of the page",
         scope=Scope.settings,
-        default="HydroLearn Text Block"
+        default="Text"
     )
 
     content = String(
