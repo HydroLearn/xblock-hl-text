@@ -1,3 +1,0 @@
-[xblock.v1]
-hl_text = hl_text:HLCustomTextXBlock
-
