@@ -65,3 +65,12 @@ pip package installer to be located for easy access. If this isn't specified, th
 
 After completing a successful build of the project detailed in the steps above, you
 should now be able to install the built package using pip
+
+1. navigate locate the `.whl` file you generated during the above build section. (the directory specfied in the bdist_wheel `-d` argument)
+
+1. while active in the environment you'd like to install the package to, run the following command `pip install [the .whl file]`    
+    
+    - the `.whl` file will have a different name depending on the installed python version, package version, and other factors, but the name will most likely begin with `xblock_hl_text-...`
+    - this will install the package `xblock-hl-text` to the currently active python environment. you can check if it was installed by running `pip freeze` and looking for `xblock-hl-text` in the installed packages.
+    
+1. If after making changes and rebuilding the package you need to reinstall the package to reflect changes, you will need to uninstall any existing version of the xblock with the following command, `pip uninstall xblock-hl-text`
