@@ -1,4 +1,4 @@
-# xblock-hl_text
+# xblock-hl-text
 pip package for custom xblock to present users with custom build of CKEditor 5.
 
 This xblock was designed to be inheritable by other xblocks to
@@ -12,6 +12,7 @@ path the local template. an example of a basic xblock inheriting from HL_Text is
 *NOTE: any pip packages that inherit from this package must list `xblock-hl-text` as a required install package*
 
 ```
+
 # import the hydrolearn custom text xblock
 from hl_text import hl_text_XBlock
 
@@ -51,8 +52,16 @@ class HL_Text_Child(hl_text_XBlock):
 ### Build Process
 - Download the project
 - navigate to the project's root directory in a terminal session
-- run `python setup.py bdist_wheel`
+- run `python setup.py bdist_wheel -d path/to/build/directory/` replacing `path/to/build/directory/` with where you'd like the 
+pip package installer to be located for easy access. If this isn't specified, the build will be located within the newly generated `build` directory in the project root under a subdirectory named after the build environment, i.e. `xblock-HL-text/bdist.linux-x86-64/...whl`.
+
  - this will generate the following in the root directory
    - a `build` directory (excluded from repository by default)
    - a `dist` directory (excluded from repository by default)
    - additionally this will update the contents of the `xblock_hl_text.egg-info` directory to update the list of sources for the package
+   - take note of the path
+
+### Installation
+
+After completing a successful build of the project detailed in the steps above, you
+should now be able to install the built package using pip
