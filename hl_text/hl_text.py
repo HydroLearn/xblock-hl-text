@@ -18,8 +18,6 @@ Disclaimer:
 """
 
 import urllib, datetime, json, urllib2
-from .utils import render_template, load_resource, resource_string
-from django.template import Context, Template
 
 # imports for content indexing support
 import re
@@ -32,6 +30,10 @@ from xblock.core import XBlock
 from xblock.fields import Scope, Integer, List, String, Boolean, Dict
 #from xblock.fragment import Fragment
 from web_fragments.fragment import Fragment
+
+
+from xblockutils.resources import ResourceLoader
+loader = ResourceLoader(__name__)
 
 # currently UNUSED until better implemented
 class StudioModalFixMixin(object):
@@ -50,8 +52,8 @@ class StudioModalFixMixin(object):
         fragment = Fragment()
 
         # add in the styling/script corrections for HL xblock component modals
-        fragment.add_css(load_resource('static/css/modal-styling.css'))
-        fragment.add_javascript(load_resource('static/js/StudioModalFix.js'))
+        fragment.add_css(loader.load_unicode('static/css/modal-styling.css'))
+        fragment.add_javascript(loader.load_unicode('static/js/StudioModalFix.js'))
 
         fragment.initialize_js('StudioModalFix_script')
 
@@ -82,7 +84,7 @@ class hl_text_XBlock(XBlock):
     )
 
     def get_empty_template(self, context={}):
-        return render_template('templates/empty_template.html', context)
+        return loader.render_template('templates/empty_template.html', context)
 
     @XBlock.json_handler
     def get_body_html(self, data, suffix=''):
@@ -113,13 +115,13 @@ class hl_text_XBlock(XBlock):
 
         fragment = Fragment()
         # Load fragment template
-        fragment.add_content(render_template('templates/hl_text-lms.html', content))
+        fragment.add_content(loader.render_template('templates/hl_text-lms.html', content))
 
-        fragment.add_css(load_resource('static/css/lms-styling.css'))
-        fragment.add_css(load_resource('static/css/ck-content-styling.css'))
+        fragment.add_css(loader.load_unicode('static/css/lms-styling.css'))
+        fragment.add_css(loader.load_unicode('static/css/ck-content-styling.css'))
 
         # add the custom initialization code for the LMS view and initialize it
-        fragment.add_javascript(load_resource('static/js/hl_text-lms.js'))
+        fragment.add_javascript(loader.load_unicode('static/js/hl_text-lms.js'))
         fragment.initialize_js('HLCK5_XBlock')
 
         return fragment
@@ -139,14 +141,14 @@ class hl_text_XBlock(XBlock):
 
         fragment = Fragment()
         # Load fragment template
-        fragment.add_content(render_template('templates/hl_text-cms.html', content))
+        fragment.add_content(loader.render_template('templates/hl_text-cms.html', content))
 
         # add static files for styling, custom CK5 build, and template initialization
-        fragment.add_css(load_resource('static/css/cms-styling.css'))
-        fragment.add_css(load_resource('static/css/modal-styling.css'))
-        fragment.add_css(load_resource('static/css/ck-content-styling.css'))
-        fragment.add_javascript(load_resource('static/js/HL_ck5_custom.js'))
-        fragment.add_javascript(load_resource('static/js/hl_text-cms.js'))
+        fragment.add_css(loader.load_unicode('static/css/cms-styling.css'))
+        fragment.add_css(loader.load_unicode('static/css/modal-styling.css'))
+        fragment.add_css(loader.load_unicode('static/css/ck-content-styling.css'))
+        fragment.add_javascript(loader.load_unicode('static/js/HL_ck5_custom.js'))
+        fragment.add_javascript(loader.load_unicode('static/js/hl_text-cms.js'))
         fragment.initialize_js('HL_TEXT_STUDIO')
 
         return fragment
