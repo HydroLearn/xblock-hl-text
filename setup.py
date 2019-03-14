@@ -26,6 +26,7 @@ VERSION = '0.1'
 # xblocks  #########################################################
 PREREQs = [
     'XBlock',
+    'xblock-hl-utils',
 ]
 
 BLOCKS = [
