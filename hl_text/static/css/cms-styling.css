@@ -18,6 +18,26 @@
   .modal-type-hl_text .edit-xblock-modal .modal-actions {
     flex-grow: unset; }
 
+#help-text-wrapper {
+  display: none;
+  padding: 1em 2em; }
+
+.template-help-icon {
+  position: absolute;
+  top: 5px;
+  right: 1.5em;
+  z-index: 2;
+  padding: 3px;
+  border-radius: 7px; }
+  .template-help-icon i {
+    font-size: 1.5em;
+    color: #45a4f3;
+    cursor: pointer; }
+  .template-help-icon:hover {
+    background: #45a4f3; }
+    .template-help-icon:hover i {
+      color: #fff; }
+
 .document-editor {
   border: 1px solid var(--ck-color-base-border);
   border-radius: var(--ck-border-radius);

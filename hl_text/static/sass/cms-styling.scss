@@ -1,3 +1,5 @@
+@import 'branding';
+
 .chx_display_name {
     width: 400px;
 }
@@ -32,6 +34,38 @@
 
 
 $editor_border_size: 1px;
+
+#help-text-wrapper{
+    display:none;
+    padding: 1em 2em;
+}
+
+.template-help-icon{
+    position: absolute;
+    top: 5px;
+    right: 1.5em;
+    z-index: 2;
+    padding: 3px;
+    border-radius: 7px;
+
+    i {
+        font-size: 1.5em;
+        color: $HL_blue;
+        cursor: pointer;
+
+
+    }
+
+    &:hover{
+        background: $HL_blue;
+
+        i{
+            color: #fff;
+        }
+    }
+
+
+}
 
 .document-editor {
     border: $editor_border_size solid var(--ck-color-base-border);

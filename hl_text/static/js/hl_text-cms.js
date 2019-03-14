@@ -119,6 +119,14 @@ function HL_TEXT_STUDIO(runtime, xblock_element) {
         // Set main pane to Options
         tab_switch("editor");
 
+        // bind event to toggle help content and editor on click
+        $('.template-help-icon').click(function(){
+            $('#help-text-wrapper', xblock_element).toggle();
+            $('.document-editor', xblock_element).toggle();
+        })
+
+
+
 
         $('.modal-window .editor-modes .modal_tab').click(function(){
             tab_switch($(this).attr('data-mode'));

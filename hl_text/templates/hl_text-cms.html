@@ -6,6 +6,10 @@
             <!-- document-editor__toolbar -->
             <!-- document-editor__editable-container -->
             <!-- document-editor__editable -->
+            {% if help_template %}
+                <div class="template-help-icon"><i class="fa fa-question-circle"></i></div>
+            {% endif %}
+
             <div class="document-editor">
                 <div class="document-editor__toolbar"></div>
                 <div class="document-editor__editable-container">
@@ -18,6 +22,11 @@
                     </div>
                 </div>
             </div>
+
+            {% if help_template %}
+                <div id="help-text-wrapper">{{ help_template|safe }}</div>
+            {% endif %}
+
         </div>
 
         <!-- XBlock options -->
