@@ -35,29 +35,7 @@ from web_fragments.fragment import Fragment
 from xblockutils.resources import ResourceLoader
 loader = ResourceLoader(__name__)
 
-# currently UNUSED until better implemented
-class StudioModalFixMixin(object):
 
-    def studio_view(self, context=None):
-        """
-            The studio view of the xblock
-
-            return: a web fragment containing the necessary styles/scripts/templates
-                for rendering the xblock editor in the cms xblock modal window.
-
-
-        """
-        # THIS TECHINCALLY CAN HAPPEN AS A MIXIN (expected to just do, not inherit)
-        # fragment = super(StudioModalFixMixin, self).studio_view(context)
-        fragment = Fragment()
-
-        # add in the styling/script corrections for HL xblock component modals
-        fragment.add_css(loader.load_unicode('static/css/modal-styling.css'))
-        fragment.add_javascript(loader.load_unicode('static/js/StudioModalFix.js'))
-
-        fragment.initialize_js('StudioModalFix_script')
-
-        return fragment
 
 
 class hl_text_XBlock(XBlock):
@@ -84,7 +62,7 @@ class hl_text_XBlock(XBlock):
     )
 
     def get_empty_template(self, context={}):
-        return loader.render_template('templates/empty_template.html', context)
+        return loader.render_django_template('templates/empty_template.html', context)
 
     @XBlock.json_handler
     def get_body_html(self, data, suffix=''):
@@ -109,13 +87,12 @@ class hl_text_XBlock(XBlock):
 
         # i assume this is making the xblock instance available from the front end
         # since 'content' is being passed as context for the template.
-        content = {}
-        content['self'] = self
-        content['empty_template'] = self.get_empty_template(content)
+        context['self'] = self
+        context['empty_template'] = self.get_empty_template(context)
 
         fragment = Fragment()
         # Load fragment template
-        fragment.add_content(loader.render_template('templates/hl_text-lms.html', content))
+        fragment.add_content(loader.render_django_template('templates/hl_text-lms.html', context))
 
         fragment.add_css(loader.load_unicode('static/css/lms-styling.css'))
         fragment.add_css(loader.load_unicode('static/css/ck-content-styling.css'))
@@ -135,13 +112,13 @@ class hl_text_XBlock(XBlock):
 
 
         """
-        content = {}
-        content['self'] = self
-        content['empty_template'] = self.get_empty_template(content)
+
+        context['self'] = self
+        context['empty_template'] = self.get_empty_template(context)
 
         fragment = Fragment()
         # Load fragment template
-        fragment.add_content(loader.render_template('templates/hl_text-cms.html', content))
+        fragment.add_content(loader.render_django_template('templates/hl_text-cms.html', context))
 
         # add static files for styling, custom CK5 build, and template initialization
         fragment.add_css(loader.load_unicode('static/css/cms-styling.css'))
