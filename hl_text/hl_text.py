@@ -21,7 +21,7 @@ import urllib, datetime, json, urllib2
 
 # imports for content indexing support
 import re
-from xmodule.util.misc import escape_html_characters
+# from xmodule.util.misc import escape_html_characters
 
 # import for adding 'editor tabs' the right way potentially
 # from xmodule.editing_module import TabsEditingDescriptor
@@ -35,7 +35,7 @@ from web_fragments.fragment import Fragment
 from xblockutils.resources import ResourceLoader
 loader = ResourceLoader(__name__)
 
-from hl_utils import HLXBlockModalHelperMixin
+# from hl_xblock_utils import HLXBlockModalHelperMixin
 
 
 # class hl_text_XBlock(HLXBlockModalHelperMixin, XBlock):
@@ -202,7 +202,7 @@ class hl_text_XBlock(XBlock):
             "",
             self.content
         )
-        html_content = escape_html_characters(html_content)
+        # html_content = escape_html_characters(html_content)
         html_body = {
             "html_content": html_content,
             "display_name": self.display_name,
@@ -220,7 +220,7 @@ class hl_text_XBlock(XBlock):
     def workbench_scenarios():
         """A canned scenario for display in the workbench."""
         return [
-            ("HLTextXBlock",
-             """<HLText/>
+            ("HL Text XBlock",
+             """<hl_text/>
              """),
         ]

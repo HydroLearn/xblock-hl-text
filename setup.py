@@ -21,12 +21,12 @@ def package_data(pkg, roots):
 
 
 # Constants #########################################################
-VERSION = '0.1.2'
+VERSION = '1.0.0'
 
 # xblocks  #########################################################
 PREREQs = [
     'XBlock',
-    'xblock-hl-utils',
+    'hl-xblock-utils',
 ]
 
 BLOCKS = [
@@ -36,7 +36,7 @@ BLOCKS = [
 
 
 setup(
-    name='xblock-hl_text',
+    name='hl-text-xblock',
     version=VERSION,
     author="cRivet",
     description='Custom Text editor xblock package for loading instance of customized CKEditor5 for use adding textual course content.',
