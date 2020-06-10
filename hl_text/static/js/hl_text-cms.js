@@ -20,8 +20,22 @@ function HL_TEXT_STUDIO(runtime, xblock_element) {
         //HL_CKEDITOR.default.classic_editor
         HL_CKEDITOR.default.document_editor
             .create(document.getElementById(editor_element_id),{
-                imageUploadUrl: "/assets/" + window.course.id + "/",
-                csrf_token: getCookie('csrftoken'),
+                // old way
+                // imageUploadUrl: "/assets/" + window.course.id + "/",
+                // csrf_token: getCookie('csrftoken'),
+
+                // update 6/10/20
+                simpleUpload: {
+                    // The URL that the images are uploaded to.
+                    uploadUrl: "/assets/" + window.course.id + "/",
+
+                    // Headers sent along with the XMLHttpRequest to the upload server.
+                    headers: {
+                        'X-CSRF-TOKEN': getCookie('csrftoken'),
+                        // Authorization: 'Bearer <JSON Web Token>'
+                    }
+                }
+
             }).then(editor => {
 
                 ckeditor_html = editor
