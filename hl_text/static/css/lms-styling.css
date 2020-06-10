@@ -8,11 +8,12 @@
 /* border-color: #19b872; */
 /* } */
 .HL_Text {
-  width: 100%; }
+  width: 100%;
+}
 
 .hl_text_xblock:after {
   content: "";
   display: table;
-  clear: both; }
-
+  clear: both;
+}
 /*# sourceMappingURL=lms-styling.css.map */

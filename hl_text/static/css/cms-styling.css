@@ -1,26 +1,38 @@
 .chx_display_name {
-  width: 400px; }
+  width: 400px;
+}
 
 .modal_tab_view {
-  width: 100%; }
+  width: 100%;
+}
 
 .modal-type-hl_text .edit-xblock-modal {
   display: flex;
   flex-flow: column;
-  height: 100%; }
-  .modal-type-hl_text .edit-xblock-modal .modal-header {
-    flex-grow: unset; }
-  .modal-type-hl_text .edit-xblock-modal .modal-content {
-    overflow: hidden !important;
-    flex-grow: 1; }
-    .modal-type-hl_text .edit-xblock-modal .modal-content .xblock-editor, .modal-type-hl_text .edit-xblock-modal .modal-content .xblock-studio_view, .modal-type-hl_text .edit-xblock-modal .modal-content .hl_text_xblock_studio, .modal-type-hl_text .edit-xblock-modal .modal-content .modal_tab_view {
-      height: 100%; }
-  .modal-type-hl_text .edit-xblock-modal .modal-actions {
-    flex-grow: unset; }
+  height: 100%;
+}
+
+.modal-type-hl_text .edit-xblock-modal .modal-header {
+  flex-grow: unset;
+}
+
+.modal-type-hl_text .edit-xblock-modal .modal-content {
+  overflow: hidden !important;
+  flex-grow: 1;
+}
+
+.modal-type-hl_text .edit-xblock-modal .modal-content .xblock-editor, .modal-type-hl_text .edit-xblock-modal .modal-content .xblock-studio_view, .modal-type-hl_text .edit-xblock-modal .modal-content .hl_text_xblock_studio, .modal-type-hl_text .edit-xblock-modal .modal-content .modal_tab_view {
+  height: 100%;
+}
+
+.modal-type-hl_text .edit-xblock-modal .modal-actions {
+  flex-grow: unset;
+}
 
 #help-text-wrapper {
   display: none;
-  padding: 1em 2em; }
+  padding: 1em 2em;
+}
 
 .template-help-icon {
   position: absolute;
@@ -28,15 +40,22 @@
   right: 1.5em;
   z-index: 2;
   padding: 3px;
-  border-radius: 7px; }
-  .template-help-icon i {
-    font-size: 1.5em;
-    color: #45a4f3;
-    cursor: pointer; }
-  .template-help-icon:hover {
-    background: #45a4f3; }
-    .template-help-icon:hover i {
-      color: #fff; }
+  border-radius: 7px;
+}
+
+.template-help-icon i {
+  font-size: 1.5em;
+  color: #45a4f3;
+  cursor: pointer;
+}
+
+.template-help-icon:hover {
+  background: #45a4f3;
+}
+
+.template-help-icon:hover i {
+  color: #fff;
+}
 
 .document-editor {
   border: 1px solid var(--ck-color-base-border);
@@ -46,7 +65,8 @@
   height: calc(100% - 2px);
   /* This element is a flex container for easier rendering. */
   display: flex;
-  flex-flow: column nowrap; }
+  flex-flow: column nowrap;
+}
 
 .document-editor__toolbar {
   /* Make sure the toolbar container is always above the editable. */
@@ -54,23 +74,27 @@
   /* Create the illusion of the toolbar floating over the editable. */
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   /* Use the CKEditor CSS variables to keep the UI consistent. */
-  border-bottom: 1px solid var(--ck-color-toolbar-border); }
+  border-bottom: 1px solid var(--ck-color-toolbar-border);
+}
 
 /* Adjust the look of the toolbar inside the container. */
 .document-editor__toolbar .ck-toolbar {
   border: 0;
-  border-radius: 0; }
+  border-radius: 0;
+}
 
 /* Make the editable container look like the inside of a native word processor application. */
 .document-editor__editable-container {
-  padding: 15px; }
+  padding: 15px;
+}
 
 .document-editor__editable-container {
-  padding: calc( 2 * var(--ck-spacing-large) );
+  padding: calc( 2 * var(--ck-spacing-large));
   background: var(--ck-color-base-foreground);
   height: 100%;
   /* Make it possible to scroll the "page" of the edited content. */
-  overflow-y: scroll; }
+  overflow-y: scroll;
+}
 
 .document-editor__editable-container .ck-editor__editable {
   /* Set the dimensions of the "page". */
@@ -85,23 +109,27 @@
   /* The "page" should cast a slight shadow (3D illusion). */
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   /* Center the "page". */
-  margin: 0 auto; }
+  margin: 0 auto;
+}
 
 /* Set the default font for the "page" of the content. */
 .document-editor .ck-content,
 .document-editor .ck-heading-dropdown .ck-list .ck-button__label {
-  font: 16px/1.6 "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif; }
+  font: 16px/1.6 "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
 
 /* Adjust the headings dropdown to host some larger heading styles. */
 .document-editor .ck-heading-dropdown .ck-list .ck-button__label {
-  line-height: calc( 1.7 * var(--ck-line-height-base) * var(--ck-font-size-base) );
-  min-width: 6em; }
+  line-height: calc( 1.7 * var(--ck-line-height-base) * var(--ck-font-size-base));
+  min-width: 6em;
+}
 
 /* Scale down all heading previews because they are way too big to be presented in the UI.
 Preserve the relative scale, though. */
 .document-editor .ck-heading-dropdown .ck-list .ck-button:not(.ck-heading_paragraph) .ck-button__label {
   transform: scale(0.8);
-  transform-origin: left; }
+  transform-origin: left;
+}
 
 /* Set the styles for "Heading 1". */
 /* Set the styles for "Heading 2". */
@@ -109,5 +137,4 @@ Preserve the relative scale, though. */
 /* Set the styles for "Heading 3". */
 /* Set the styles for "Paragraph". */
 /* Make the block quoted text serif with some additional spacing. */
-
 /*# sourceMappingURL=cms-styling.css.map */
