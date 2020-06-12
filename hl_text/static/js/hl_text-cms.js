@@ -31,7 +31,7 @@ function HL_TEXT_STUDIO(runtime, xblock_element) {
                     payloadName: 'file',
                     // Headers sent along with the XMLHttpRequest to the upload server.
                     headers: {
-                        'X-CSRF-TOKEN': getCookie('csrftoken'),
+                        'X-CSRFToken': getCookie('csrftoken'),
                         "Accept": "application/json",                        
                     }
                 }
