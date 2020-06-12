@@ -25,14 +25,14 @@ function HL_TEXT_STUDIO(runtime, xblock_element) {
                 // csrf_token: getCookie('csrftoken'),
 
                 // update 6/10/20
-                simpleUpload: {
+                upload_config: {
                     // The URL that the images are uploaded to.
                     uploadUrl: "/assets/" + window.course.id + "/",
-
+                    payloadName: 'file',
                     // Headers sent along with the XMLHttpRequest to the upload server.
                     headers: {
                         'X-CSRF-TOKEN': getCookie('csrftoken'),
-                        // Authorization: 'Bearer <JSON Web Token>'
+                        "Accept": "application/json",                        
                     }
                 }
 
