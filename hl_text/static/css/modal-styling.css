@@ -1,3 +1,11 @@
+.modal-window-overlay {
+  z-index: 99 !important;
+}
+
+.modal-window {
+  z-index: 100 !important;
+}
+
 .modal-window.hl_resize_correction .edit-xblock-modal {
   display: flex;
   flex-flow: column;

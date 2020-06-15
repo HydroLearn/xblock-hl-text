@@ -8,8 +8,17 @@
 //          (this will likely change once 'correct' method of generating tabs is discovered)
 $action_container_height: 56px;
 
-.modal-window.hl_resize_correction{
+// z-index fix
+.modal-window-overlay {
+    z-index:99 !important;
+}
+.modal-window {
+    z-index:100 !important;
+}
 
+
+.modal-window.hl_resize_correction{
+    
     .edit-xblock-modal{
         display: flex;
         flex-flow: column;

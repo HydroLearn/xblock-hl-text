@@ -12,6 +12,7 @@
   --ck-highlight-pen-red: #e91313;
   --ck-image-style-spacing: 1.5em;
   --ck-todo-list-checkmark-size: 16px;
+  --ck-z-default: 10 !important;
 }
 
 /* ckeditor5-image/theme/imageresize.css */
@@ -346,10 +347,63 @@
   }
 }
 
+/* CKEditor styling overrides*/
 .ck-content:after {
   content: " ";
   display: block;
   height: 0;
   clear: both;
+}
+
+.ck-content ul {
+  list-style: disc;
+}
+
+.ck-content ul ul {
+  list-style: circle;
+}
+
+.ck-content ul ul ul {
+  list-style: square;
+}
+
+.ck-content ul ul ul ul {
+  list-style: disc;
+}
+
+.ck-content ul ul ul ul ul {
+  list-style: circle;
+}
+
+.ck-content ul ul ul ul ul ul {
+  list-style: square;
+}
+
+.ck-content ol {
+  list-style: decimal;
+}
+
+.ck-content ol ol {
+  list-style: upper-alpha;
+}
+
+.ck-content ol ol ol {
+  list-style: lower-alpha;
+}
+
+.ck-content ol ol ol ol {
+  list-style: upper-roman;
+}
+
+.ck-content ol ol ol ol ol {
+  list-style: lower-roman;
+}
+
+.ck-content figure.table table tr th {
+  background: #eee;
+}
+
+.ck-content figure.table table tr td {
+  border: 1px solid #ccc;
 }
 /*# sourceMappingURL=ck-content-styling.css.map */

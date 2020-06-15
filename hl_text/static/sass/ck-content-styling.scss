@@ -3,7 +3,7 @@
 // default ck-editor provided styling
 @import 'ck-content';
 
-
+/* CKEditor styling overrides*/
 .ck-content:after{
     content: " ";
     display: block; 
@@ -11,173 +11,56 @@
     clear: both;
 }
 
-// /*CKEditor styling Overrides*/
-// .ck-content {
+// HL specific styling
+.ck-content {
 
-//     i {
-//         font-style: italic;
-//     }
+    // Unordered list styling
+    ul{ list-style: disc;
+        ul{    list-style: circle;
+            ul{ list-style: square;
+                ul{ list-style: disc;
+                    ul{ list-style: circle;
+                        ul{ list-style: square; }
+                    }
+                }
+            }
+        }
+    }
 
-//     b,strong {
-//         font-weight: bold;
-//     }
-
-//     h1,h2,h3,h4,h5,h6{
-//         font-weight: 600 !important;
-//         font-family: $default_font !important;
-//         margin: 25px 0 10px !important;
-//         text-transform: none !important;
-//     }
-//     h1{
-//         font-size: 2em !important;
-//         line-height: 2em;
-//         color: $gray_dark !important;
-
-//     }
-//     h2{
-//         font-size: 1.8em !important;
-//         line-height: 1.8em;
-//         color: $gray_dark !important;
-//         border-bottom: 1px solid #ccc !important;
-
-//     }
-//     h3{
-//         font-size: 1.3em !important;
-//         line-height: 1.4em;
-//         color: $gray_dark !important;
-//         border-bottom: 1px solid #ccc !important;
-//     }
-//     h4{
-//         font-size: 1.2em !important;
-//         line-height: 1.3em;
-//         color: $gray_med !important;
-//     }
-//     h5{
-//         font-size: 1.2em !important;
-//         line-height: 1.2em;
-//         color: $gray_med !important;
-//     }
-//     h6{
-//         font-size: 1.1em !important;
-//         line-height: 1.1em;
-//         color: $gray_med !important;
-//     }
-
-//     ul, ol{
-//         margin-left: 2em;
-//     }
-
-//     ul{ list-style: disc;
-//         ul{    list-style: circle;
-//             ul{ list-style: square;
-//                 ul{ list-style: disc;
-//                     ul{ list-style: circle;
-//                         ul{ list-style: square; }
-//                     }
-//                 }
-//             }
-//         }
-//     }
-
-//     ol{ list-style: decimal;
-//         ol{ list-style: upper-alpha;
-//             ol{ list-style: lower-alpha;
-//                 ol{ list-style: upper-roman;
-//                     ol{ list-style: lower-roman; }
-//                 }
-//             }
-//         }
-//     }
-
-//     figure{
-
-//         // ********************* IMAGE STYLING *********************
-//         &.image{
-
-//             img{
-//                 height:300px;
-//             }
-
-//             &.image-style-align-right{
-//                 float:right;
-
-//                 img{
-//                     height:200px;
-//                 }
-
-//             }
-//             &.image-style-align-left{
-//                 float:left;
-
-//                 img{
-//                     height:200px;
-//                 }
-
-//             }
+    // Ordered list styling
+    ol{ list-style: decimal;
+        ol{ list-style: upper-alpha;
+            ol{ list-style: lower-alpha;
+                ol{ list-style: upper-roman;
+                    ol{ list-style: lower-roman; }
+                }
+            }
+        }
+    }
 
 
-//         }
+    // ********************* DEFAULT TABLE STYLING *********************
+    figure.table{
+
+        table{
+
+            tr{
+                th{
+
+                    background: #eee;
+
+                }
+
+                td{
+                    border: 1px solid #ccc;
+
+                }
+            }
+        }
+    }
+
+}
 
 
 
-//         figcaption {
-//             background: #eee;
-//             font-style: italic;
-//             text-align: center;
-//             padding: 5px;
-//         }
 
-//         // ********************* TABLE STYLING *********************
-//         &.table{
-//             width:100%;
-//             table{
-//                 // border-spacing: 1px;
-//                 // border-collapse: unset;
-//                 width: 100%;
-//                 margin: 20px 0;
-//                 border-collapse: collapse;
-//                 font-size: 1em;
-//                 word-break: normal;
-
-//                 tr{
-//                     th{
-//                         // padding: 3px 5px;
-//                         // margin:1px;
-//                         // background: $HL_blue;
-//                         // color: #fff;
-//                         // font-style: italic;
-//                         //border: 1px solid #ccc;
-
-//                         background: #eee;
-//                         font-weight: 600;
-
-//                         margin: 20px 0;
-//                         padding: 10px;
-//                         border: 1px solid #ccc;
-//                         font-size: 1em;
-//                     }
-
-//                     td{
-//                         // padding: 3px 5px;
-//                         // margin:1px;
-//                         // background: #eee;
-//                         //border: 1px solid #ccc;
-
-//                         margin: 20px 0;
-//                         padding: 10px;
-//                         border: 1px solid #ccc;
-//                         font-size: 1.1em;
-//                     }
-//                 }
-//             }
-//         }
-
-//     }
-
-//     blockquote {
-//         margin-left: calc( 2 * var(--ck-spacing-large) );
-//         margin-right: calc( 2 * var(--ck-spacing-large) );
-//     }
-
-
-// }
