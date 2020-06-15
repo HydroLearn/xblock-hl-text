@@ -28,7 +28,10 @@ function HL_TEXT_STUDIO(runtime, xblock_element) {
                 upload_config: {
                     // The URL that the images are uploaded to.
                     uploadUrl: "/assets/" + window.course.id + "/",
-                    payloadName: 'file',
+                    //payloadName: 'file',
+                    requestPayloadName: 'upload',
+                    responsePayloadName: 'asset',
+                    
                     // Headers sent along with the XMLHttpRequest to the upload server.
                     headers: {
                         'X-CSRFToken': getCookie('csrftoken'),
