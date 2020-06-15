@@ -29,7 +29,7 @@ function HL_TEXT_STUDIO(runtime, xblock_element) {
                     // The URL that the images are uploaded to.
                     uploadUrl: "/assets/" + window.course.id + "/",
                     //payloadName: 'file',
-                    requestPayloadName: 'upload',
+                    requestPayloadName: 'file',
                     responsePayloadName: 'asset',
                     
                     // Headers sent along with the XMLHttpRequest to the upload server.
