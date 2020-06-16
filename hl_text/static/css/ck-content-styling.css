@@ -15,6 +15,11 @@
   --ck-z-default: 10 !important;
 }
 
+/* clear out parent styles for child elements before defining new styles */
+.ck-content * {
+  all: revert;
+}
+
 /* ckeditor5-image/theme/imageresize.css */
 .ck-content .image.image_resized {
   max-width: 100%;
