@@ -408,7 +408,7 @@
   background: #eee;
 }
 
-.ck-content figure.table table tr td {
+.ck-content figure.table table tr td, .ck-content figure.table table tr th {
   border: 1px solid #ccc;
 }
 /*# sourceMappingURL=ck-content-styling.css.map */
