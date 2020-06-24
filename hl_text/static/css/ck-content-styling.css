@@ -2,6 +2,9 @@
  * CKEditor 5 (v17.0.0) content styles.
  * Generated on Fri, 13 Mar 2020 13:27:10 GMT.
  * For more information, check out https://ckeditor.com/docs/ckeditor5/latest/builds/guides/integration/content-styles.html
+
+ Updated to include several modifications to overwrite some
+ oddities from edx default styling
  */
 :root {
   --ck-highlight-marker-blue: #72cdfd;
@@ -360,12 +363,35 @@
   clear: both;
 }
 
+.ck-content h2, .ck-content h3, .ck-content h4 {
+  color: #646464;
+  font-weight: 600;
+  line-height: 1.4em;
+  text-transform: unset !important;
+}
+
+.ck-content h2 {
+  font-size: 1.5em;
+}
+
+.ck-content h3 {
+  font-size: 1.2em;
+}
+
+.ck-content h4 {
+  font-size: 1.2em;
+  font-weight: normal;
+  line-height: 1.4em;
+}
+
 .ck-content ul {
   list-style: disc;
 }
 
 .ck-content ul ul {
   list-style: circle;
+  padding-left: 2em;
+  margin-bottom: unset !important;
 }
 
 .ck-content ul ul ul {
@@ -386,6 +412,12 @@
 
 .ck-content ol {
   list-style: decimal;
+  padding-left: 2em;
+  margin-bottom: unset !important;
+}
+
+.ck-content ol li {
+  margin-bottom: unset !important;
 }
 
 .ck-content ol ol {

@@ -14,9 +14,32 @@
 // HL specific styling
 .ck-content {
 
+    // refresh header styles
+    h2, h3, h4 {
+        color: #646464;
+        font-weight: 600;
+        line-height: 1.4em;
+        text-transform: unset !important;
+    }
+
+    h2 { font-size: 1.5em; }
+    h3 { font-size: 1.2em; }
+    h4 { 
+        font-size: 1.2em; 
+        font-weight: normal;
+        line-height: 1.4em;
+    }
+
     // Unordered list styling
-    ul{ list-style: disc;
-        ul{    list-style: circle;
+    ul{ 
+        list-style: disc;
+
+        ul{ 
+            list-style: circle;
+            padding-left: 2em;
+            margin-bottom: unset !important;
+
+            // nested list styles
             ul{ list-style: square;
                 ul{ list-style: disc;
                     ul{ list-style: circle;
@@ -28,7 +51,14 @@
     }
 
     // Ordered list styling
-    ol{ list-style: decimal;
+    ol{ 
+        list-style: decimal;
+        padding-left: 2em;
+        margin-bottom: unset !important;
+
+        li { margin-bottom: unset !important; }
+
+        // nested list styles
         ol{ list-style: upper-alpha;
             ol{ list-style: lower-alpha;
                 ol{ list-style: upper-roman;
