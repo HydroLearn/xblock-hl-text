@@ -9,6 +9,11 @@ function HLCK5_XBlock(runtime, xblock_element) {
         MathJax.Hub.Queue(["Typeset", MathJax.Hub, "ck-content"]);
 
         // run styling for codeblocks in HL_Text blocks
-        hljs.initHighlightingOnLoad();
+        // hljs.initHighlightingOnLoad();
+        
+        // potential piecemeal code block highlighting
+        $(xblock_element).get(0).querySelectorAll('pre code').forEach((block) => {
+            hljs.highlightBlock(block);
+          });
     });
 }
