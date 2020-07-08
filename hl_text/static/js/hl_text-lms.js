@@ -7,5 +7,8 @@ function HLCK5_XBlock(runtime, xblock_element) {
 
         // render included mathjax
         MathJax.Hub.Queue(["Typeset", MathJax.Hub, "ck-content"]);
+
+        // run styling for codeblocks in HL_Text blocks
+        hljs.initHighlightingOnLoad();
     });
 }

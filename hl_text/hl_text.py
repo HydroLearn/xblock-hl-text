@@ -113,11 +113,18 @@ class hl_text_XBlock(XBlock):
         # Load fragment template
         fragment.add_content(loader.render_django_template('templates/hl_text-lms.html', context))
 
+
         fragment.add_css(loader.load_unicode('static/css/lms-styling.css'))
         fragment.add_css(loader.load_unicode('static/css/ck-content-styling.css'))
-
-        # add the custom initialization code for the LMS view and initialize it
+        
+        # CJR 7/8/20
+        #   Add highlightJS styling and library for use by code blocks in text 
+        fragment.add_css(loader.load_unicode('static/highlightJS/styles/default.css'))
+        fragment.add_javascript(loader.load_unicode('static/highlightJS/highlight.pack.js'))
+        
+        # add the custom initialization code for the LMS view and initialize it        
         fragment.add_javascript(loader.load_unicode('static/js/hl_text-lms.js'))
+        
         fragment.initialize_js('HLCK5_XBlock')
 
         return fragment
