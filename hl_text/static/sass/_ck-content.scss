@@ -15,10 +15,9 @@
     --ck-todo-list-checkmark-size: 16px;
     --ck-z-default: 10 !important;
 }
-
-.ck-content * {
-    all: revert;
-}
+// .ck-content * {
+//     all: revert;
+// }
 
 /* ckeditor5-list/theme/todolist.css */
 .ck-content .todo-list {

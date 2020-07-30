@@ -15,10 +15,6 @@
   --ck-z-default: 10 !important;
 }
 
-.ck-content * {
-  all: revert;
-}
-
 /* ckeditor5-list/theme/todolist.css */
 .ck-content .todo-list {
   list-style: none;
