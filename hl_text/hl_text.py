@@ -17,7 +17,7 @@ Disclaimer:
 
 """
 
-import urllib, datetime, json, urllib2
+import urllib.request, urllib.parse, urllib.error, datetime, json
 
 # imports for content indexing support
 import re
