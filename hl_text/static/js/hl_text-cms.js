@@ -12,20 +12,17 @@ function HL_TEXT_STUDIO(runtime, xblock_element) {
   }
 
   var ckeditor_html = ""
-
-  if (typeof HL_CKEDITOR != "undefined") {
+  // if (typeof HL_CKEDITOR != "undefined") {
+  if (false) {
     console.log("HL_CKEDITOR was loaded.")
 
     //HL_CKEDITOR.default.classic_editor
     HL_CKEDITOR.default.document_editor
       .create(document.getElementById(editor_element_id), {
-        // old way
-        // imageUploadUrl: "/assets/" + window.course.id + "/",
-        // csrf_token: getCookie('csrftoken'),
+        /* 
         // REMOVED 5/1/2026  - NO LONGER FUNCTIONAL AS OF ULMO
         //      They've removed window.course.id
-        //
-        /* upload_config: {
+        upload_config: {
                     // update 6/10/20
                     // The URL that the images are uploaded to.
                     uploadUrl: "/assets/" + window.course.id + "/",
@@ -43,11 +40,6 @@ function HL_TEXT_STUDIO(runtime, xblock_element) {
       .then((editor) => {
         ckeditor_html = editor
 
-        // sample binding on data changed action
-        // editor.model.document.on( 'change:data', () => {
-        // TOC_MGR.trigger_event(TOC_MGR.EVENT_TRIGGERS.EDITED_CURRENT)
-        // } );
-
         const toolbarContainer = document.querySelector(
           ".document-editor__toolbar",
         )
@@ -59,8 +51,6 @@ function HL_TEXT_STUDIO(runtime, xblock_element) {
         console.log("HL_CKEDITOR initialization Failed!")
         console.log(err.stack)
       })
-  } else {
-    alert("HL_CKEDITOR was not found!")
   }
 
   function getCookie(name) {
@@ -148,7 +138,10 @@ function HL_TEXT_STUDIO(runtime, xblock_element) {
     $(xblock_element)
       .find(".save-button")
       .bind("click", function () {
-        studio_submit(true)
+        // studio_submit(true)
+        alert(
+          "This Content Block is being depreciated, please migrate its content to the default 'Text' block",
+        )
       })
 
     // cancel button clicked
