@@ -47,7 +47,7 @@ class hl_text_XBlock(XBlock):
         A starter template can be provided by overriding the 'get_empty_template' method.
     """
     CATEGORY = "hl_text"
-    STUDIO_LABEL = "Text"
+    STUDIO_LABEL = "Text (Depreciated)"
 
     display_name = String(
         display_name="Display Name",
