@@ -12,6 +12,34 @@ function HL_TEXT_STUDIO(runtime, xblock_element) {
   }
 
   var ckeditor_html = ""
+
+  // added 6/1/26
+
+  function copy_block_content() {
+    const element = xblock_element.querySelector(".ck-content")
+    // Create blobs for both rich HTML and plain text fallback
+    const htmlBlob = new Blob([element.innerHTML], { type: "text/html" })
+    const textBlob = new Blob([element.innerText], { type: "text/plain" })
+
+    // Pack them into a ClipboardItem object
+    const clipboardItem = new ClipboardItem({
+      "text/html": htmlBlob,
+      "text/plain": textBlob,
+    })
+
+    // Write the rich data to the system clipboard
+    navigator.clipboard
+      .write([clipboardItem])
+      .then(() => alert("Block content copied!"))
+      .catch((err) => console.error("Failed to copy block content: ", err))
+  }
+
+  // Bind a copy-to-clipboard event to newly added button
+  let BUTTON_copy_to_clipboard = xblock_element?.querySelector(
+    "button.copy-block-content",
+  )
+  BUTTON_copy_to_clipboard?.addEventListener("click", copy_block_content)
+
   // if (typeof HL_CKEDITOR != "undefined") {
   if (false) {
     console.log("HL_CKEDITOR was loaded.")
