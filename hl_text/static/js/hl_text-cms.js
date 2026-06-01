@@ -16,7 +16,8 @@ function HL_TEXT_STUDIO(runtime, xblock_element) {
   // added 6/1/26
 
   function copy_block_content() {
-    const element = xblock_element.querySelector(".ck-content")
+    // const element = xblock_element.querySelector(".ck-content")
+    const element = $(xblock_element).find(".ck-content").get(0)
     // Create blobs for both rich HTML and plain text fallback
     const htmlBlob = new Blob([element.innerHTML], { type: "text/html" })
     const textBlob = new Blob([element.innerText], { type: "text/plain" })
@@ -35,9 +36,9 @@ function HL_TEXT_STUDIO(runtime, xblock_element) {
   }
 
   // Bind a copy-to-clipboard event to newly added button
-  let BUTTON_copy_to_clipboard = xblock_element?.querySelector(
-    "button.copy-block-content",
-  )
+  let BUTTON_copy_to_clipboard = $(xblock_element)
+    .find("button.copy-block-content")
+    .get(0)
   BUTTON_copy_to_clipboard?.addEventListener("click", copy_block_content)
 
   // if (typeof HL_CKEDITOR != "undefined") {
