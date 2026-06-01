@@ -31,7 +31,11 @@ function HL_TEXT_STUDIO(runtime, xblock_element) {
     // Write the rich data to the system clipboard
     navigator.clipboard
       .write([clipboardItem])
-      .then(() => alert("Block content copied!"))
+      .then(() =>
+        alert(
+          "Block content copied! You can now paste the content in the new location with (Ctrl+V)",
+        ),
+      )
       .catch((err) => console.error("Failed to copy block content: ", err))
   }
 
